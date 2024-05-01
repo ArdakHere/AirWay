@@ -4,6 +4,8 @@ import requests
 from translate import Translator
 import os
 from openai import OpenAI
+import json
+from plotter import *
 
 # apikey ChatGPT sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP,   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
 # apikey GeminiAI AIzaSyAoDDOARP81gR1X8AGA82YKE8sXlzuVTJk
@@ -14,49 +16,102 @@ kolesa_data = ""
 def gpt_caller(data):
     # Supply the car name and ask for emissions and other stuff
 
-    api_key = 'sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP'
-    endpoint = 'https://api.openai.com/v1/chat/completions'
+    # api_key = 'sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP'
+    # endpoint = 'https://api.openai.com/v1/chat/completions'
 
-    prompt = ("Hey! I need you help with getting all the information related to emissions rating of the following car"
-              "and its eco-friendliness")
+    # prompt = ("Hey! I need you help with getting all the information related to emissions rating of the following car"
+    #           "and its eco-friendliness")
 
-    additional_data = {
-        "car_title": data["car_title"],
-        "generation": data["generation"],
-        "engine_displacement": data["engine_displacement"],
-        "distance run (km)": data["distance run (km)"],
-        "N-wheel drive": data["N-wheel drive"],
+    # additional_data = {
+    #     "car_title": data["car_title"],
+    #     "generation": data["generation"],
+    #     "engine_displacement": data["engine_displacement"],
+    #     "distance run (km)": data["distance run (km)"],
+    #     "N-wheel drive": data["N-wheel drive"],
+    # }
+
+
+    # response = client.chat.completions.create(
+    #     model="gpt-4",
+    #     messages=[
+    #         {
+    #             "role": "system",
+    #             "content": "Hey! I am going to provide a data on a car and I want you to rate how safe for ecology it is on a scale 0-10 and find the CO2 emissions number."
+    #                         "If it is not possible to find the exact number, please provide an approximate value. Also, please provide the PM2.5 and PM10 emissions in the same format."
+    #                        " Do not return anything else in the response, only provide the answer in the following format without any explanation text of fields. Only this struct: "
+    #                        """{
+    #                             "impact": "5/10",
+    #                             "co": 1920, 
+    #                             "pm25": 192, 
+    #                             "pm10": 56, 
+    #                             "recommendation": "Regular maintenance and tuning can improve fuel efficiency and reduce emissions. Consider using public transport, carpooling, or switching to electric vehicles to reduce emissions further.", 
+    #                             "trees_killed": 11
+    #                         }"""
+    #         },
+    #         {
+    #             "role": "user",
+    #             "content": f"Car brand and model: {additional_data['car_title']}, Model generation: {additional_data['generation']}."
+    #                     f"Engine displacement: {additional_data['engine_displacement']}, N-wheel drive: {additional_data['N-wheel drive']}"
+    #                        f"Mileage (km): {additional_data['distance run (km)']}"
+
+
+    #         }
+    #     ],
+    #     max_tokens=300
+    # )
+
+
+    # raw_report = response.choices[0].message.content
+
+    # encoded_report = json.loads(raw_report)
+
+    encoded_report = {
+        "impact": "5/10",
+        "co": 1920,
+        "pm25": 192,
+        "pm10": 56,
+        "recommendation": "Regular maintenance and tuning can improve fuel efficiency and reduce emissions. Consider using public transport, carpooling, or switching to electric vehicles to reduce emissions further.",
+        "trees_killed": 11
     }
 
+    color = color_calculator(encoded_report)
 
-    response = client.chat.completions.create(
-        model="gpt-4",
-        messages=[
-            {
-                "role": "system",
-                "content": "Hey! I am going to provide a data on a car and I want you to rate how safe for ecology it is on a scale 0-10 and find the CO2 emissions number."
-                           " Then, explain what do these numbers and ratings mean. "
-                           "Provide the asnwer in the following format: "
-                           "- The N car is 5/10 in terms of it impact on ecology/air "
-                           "- The N car has a X CO2 emissions number"
-                           "- This information shows that this car is ..."
-            },
-            {
-                "role": "user",
-                "content": f"Car brand and model: {additional_data['car_title']}, Model generation: {additional_data['generation']}."
-                        f"Engine displacement: {additional_data['engine_displacement']}, N-wheel drive: {additional_data['N-wheel drive']}"
-                           f"Mileage (km): {additional_data['distance run (km)']}"
-
-
-            }
-        ],
-        max_tokens=300
+    return generate_report_for_car_emission(
+        encoded_report["impact"], 
+        int(encoded_report["co"]),
+        int(encoded_report["pm25"]), 
+        int(encoded_report["pm10"]), 
+        encoded_report["recommendation"],
+        encoded_report["trees_killed"],
+        color,
     )
 
+def color_calculator(metrics_data):
+    aq_index = 0
+    pm25_weight = 0.5
+    pm10_weight = 0.3
+    co_weight = 0.2
 
-    report = response.choices[0].message.content
+    for key in metrics_data:
+        if key == "pm25":
+            aq_index = pm25_weight*float(metrics_data[key]) + aq_index
+        if key == "pm10":
+            aq_index = pm10_weight*float(metrics_data[key]) + aq_index
+        if key == "co":
+            aq_index = co_weight*float(metrics_data[key]) + aq_index
+    color = ""
+    if aq_index >= 100: # Orange
+        color = [255, 119, 0]
+    if aq_index >= 85:   #dark yellow
+        color = [255, 189, 55]
+    if aq_index >= 45 and aq_index < 85:  # yellow
+        color = [255, 224, 18]
+    if aq_index < 30:   # dark green
+        color = [67, 166, 0]
+    if aq_index >= 30 and aq_index < 45: #brighter green
+        color = [161, 219, 0]
 
-    return report
+    return color
 
 
 ##########################################################################################

@@ -25,9 +25,19 @@ car_data["N-wheel drive"] = st.text_input('Enter the wheel drive configuration')
 report = gpt_caller(car_data)
 
 if st.button('Generate Report'):
-    report = gpt_caller(car_data)
+    raw_report = gpt_caller(car_data)
+    # {
+    #     "impact": "5/10",
+    #     "co2": 1920, 
+    #     "pm2_5": 192, 
+    #     "pm10": 56, 
+    #     "recommendation": "Regular maintenance and tuning can improve fuel efficiency and reduce emissions. Consider using public transport, carpooling, or switching to electric vehicles to reduce emissions further.", 
+    #     "trees_killed": 11
+    # }
+
+    # generate_report_for_car_emission
 
     if report:
+        st.image(gpt_caller(car_data), caption='Report', use_column_width=True)
         # Display HTML content with taller st.text
-        st.text_area(label="Report", value=report, height=500, max_chars=None, key=None)
 
