@@ -3,7 +3,6 @@ import streamlit as st
 st.set_page_config(
     page_title="Hello",
     page_icon="👋",
-    backgroundColor = "#F0F0F0"
 )
 
 def set_background(color):

@@ -2,11 +2,46 @@ from PIL import Image, ImageFont, ImageDraw
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from datetime import datetime
+import os
 
 APARTMENT_IMAGE_PATH = "./pages/apartmentReportTemplate.png"
 CAR_IMAGE_PATH = "./pages/carReportTemplate.png"
 PICTOGRAMS_PATH = "./pictograms/"
 IMAGE_PATH = "./pages/reportTemplate.png"
+
+
+def get_pm25_hour_history(filename: str):
+    # Path to the src folder
+    folder = "./hour_pm25_history/"
+
+    # Construct the full file path
+    file_path = folder + filename
+    # Check if the file exists
+    if os.path.exists(file_path):
+        # File found, return the file path
+        print(f"Found file: {file_path}")
+        return file_path
+    else:
+        print(f"File not found: {file_path}")
+        return None
+
+
+
+def get_pm25_week_history(filename: str):
+    # Path to the src folder
+    folder = "./week_pm25_history/"
+
+    # Construct the full file path
+    file_path = folder + filename
+
+    # Check if the file exists
+    if os.path.exists(file_path):
+        # File found, return the file path
+        print(f"Found file: {file_path}")
+        return file_path
+    else:
+        print(f"File not found: {file_path}")
+        return None
 
 
 def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color: list, pm10Color: list, coColor: list, pm25: int, pm10: int, co: int, text: str) -> str:

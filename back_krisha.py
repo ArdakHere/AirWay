@@ -39,7 +39,7 @@ def gpt_text_generator(data):
 
 
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[
             {
                 "role": "system",
@@ -160,11 +160,13 @@ def haversine(lat1, lon1, lat2, lon2):
 
     return distance
 
+
 def find_closest_sensor(sensor_locations, provided_location):
     closest_sensor = None
     min_distance = float('inf')
 
     for _, sensor_location in sensor_locations.iterrows():
+
         distance = haversine(float(provided_location['Latitude']), float(provided_location['Longitude']),
                              float(sensor_location['Latitude']), float(sensor_location['Longtitude']))
         if distance < min_distance:
@@ -293,7 +295,30 @@ def get_coordinates(data):
     else:
         print("Latitude and longitude data not found.")
 
-def report_hanlder(url):
+
+def get_sensor_location_id(url):
+    sensor_dataframe = sergek_reader()  # Read the SERGEK's dataset
+    phys_data = krisha_html_download(url)  # Get coordinates and other physical data
+
+    sensor_locations_df = pd.DataFrame(sensor_dataframe)
+    sensor_locations_df = sensor_locations_df.drop(sensor_locations_df.index[0])
+
+    # Provided location
+    provided_location = phys_data["location"]  # Example provided location
+    latitude, longitude = map(float, provided_location.split(','))
+
+    provided_location_dict = {
+        "Latitude": latitude,
+        "Longitude": longitude
+    }
+
+    closest_sensor = find_closest_sensor(sensor_locations_df, provided_location_dict)
+
+    closest_sensor_dict = closest_sensor.to_dict()
+
+    return closest_sensor_dict["location_id"]
+
+def report_handler(url):
     sensor_dataframe = sergek_reader()  # Read the SERGEK's dataset
     phys_data = krisha_html_download(url)  # Get coordinates and other physical data
 
@@ -341,13 +366,11 @@ def temp_func():
 
     sensor_locations_df = pd.DataFrame(sensor_dataframe)
     sensor_locations_df = sensor_locations_df.drop(sensor_locations_df.index[0])
-
     # Provided location
     provided_location = {'Latitude': 43.144244, 'Longitude': 76.5533}  # Example provided location
 
     closest_sensor = find_closest_sensor(sensor_locations_df, provided_location)
 
-    print("Closest Sensor:")
     closest_sensor_dict = closest_sensor.to_dict()
 
     data_processed = index_calculator(closest_sensor_dict)
@@ -368,5 +391,4 @@ def temp_func():
                                             data_processed["color_pm10"], data_processed["color_co"], data_processed["pm25"],
                                             data_processed["pm10"], data_processed["co"], data_processed["report"])
 
-
-
+temp_func()
