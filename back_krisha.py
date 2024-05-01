@@ -9,7 +9,7 @@ client = OpenAI(api_key="sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykO
 
 def sergek_reader():
     # Read the Parquet file into a DataFrame
-    df = pd.read_parquet("data_sensor.parquet")
+    df = pd.read_parquet("/Users/ardaka/Desktop/data_sensor.parquet")
 
     # Filter relevant columns
     filtered_df = df[['location_id', 'Latitude', 'Longtitude', 'pm25', 'pm10', 'co']]
@@ -53,7 +53,7 @@ def gpt_text_generator(data):
                            ""
                            "-CO rating shows that ... "
                            ""
-                           "-Recommendations are "
+                           "Recommendations are:"
                            ""
             },
             {
@@ -83,7 +83,13 @@ def index_calculator(metrics_data):
             aq_index = pm10_weight*float(metrics_data[key]) + aq_index
         if key == "co":
             aq_index = co_weight*float(metrics_data[key]) + aq_index
+
     color = ""
+    color_pm25 = ""
+    color_pm10 = ""
+    color_co = ""
+
+
     if aq_index >= 100: # Orange
         color = [255, 119, 0]
     if aq_index >= 85:   #dark yellow
@@ -95,13 +101,51 @@ def index_calculator(metrics_data):
     if aq_index >= 30 and aq_index < 45: #brighter green
         color = [161, 219, 0]
 
+    ##### pm25 color
+    if float(metrics_data["pm25"]) >= 100: # Orange
+        color_pm25 = [255, 119, 0]
+    if float(metrics_data["pm25"]) >= 85:   #dark yellow
+        color_pm25 = [255, 189, 55]
+    if float(metrics_data["pm25"]) >= 45 and float(metrics_data["pm25"]) < 85:  # yellow
+        color_pm25 = [255, 224, 18]
+    if float(metrics_data["pm25"]) < 30:   # dark green
+        color_pm25 = [67, 166, 0]
+    if float(metrics_data["pm25"]) >= 30 and float(metrics_data["pm25"]) < 45: #brighter green
+        color_pm25 = [161, 219, 0]
+
+    ##### pm10 color
+    if float(metrics_data["pm10"]) >= 100:  # Orange
+        color_pm10 = [255, 119, 0]
+    if float(metrics_data["pm10"]) >= 85:  # dark yellow
+        color_pm10 = [255, 189, 55]
+    if float(metrics_data["pm10"]) >= 45 and aq_index < 85:  # yellow
+        color_pm10 = [255, 224, 18]
+    if float(metrics_data["pm10"]) < 30:  # dark green
+        color_pm10 = [67, 166, 0]
+    if float(metrics_data["pm10"]) >= 30 and float(metrics_data["pm10"]) < 45:  # brighter green
+        color_pm10 = [161, 219, 0]
+
+    ##### pm10 color
+    if float(metrics_data["co"]) >= 100:  # Orange
+        color_co = [255, 119, 0]
+    if float(metrics_data["co"]) >= 85:  # dark yellow
+        color_co = [255, 189, 55]
+    if float(metrics_data["co"]) >= 45 and aq_index < 85:  # yellow
+        color_co = [255, 224, 18]
+    if float(metrics_data["co"]) < 30:  # dark green
+        color_co = [67, 166, 0]
+    if float(metrics_data["co"]) >= 30 and float(metrics_data["co"]) < 45:  # brighter green
+        color_co = [161, 219, 0]
+
     index_dict = {
         "aq_index_numeric": int(aq_index),
-        "aq_index_color": color
+        "aq_index_color": color,
+        "color_pm25": color_pm25,
+        "color_pm10": color_pm10,
+        "color_co": color_co
     }
 
     return index_dict
-
 
 def haversine(lat1, lon1, lat2, lon2):
     # Convert latitude and longitude from degrees to radians
@@ -283,9 +327,13 @@ def report_hanlder(url):
 
     data_processed.update({"report": gpt_text_generator(aq_metrics_for_gpt_report)})
 
-    return generate_report_for_krisha(int(data_processed["aq_index_numeric"]), data_processed["aq_index_color"],
-                                      data_processed["pm25"], data_processed["pm10"], data_processed["co"],
-                                      data_processed["report"])
+    return generate_report_for_an_apartment(int(data_processed["aq_index_numeric"]),
+                                            data_processed["aq_index_color"],
+                                            data_processed["color_pm25"],
+                                            data_processed["color_pm10"],
+                                            data_processed["color_co"],
+                                            data_processed["pm25"], data_processed["pm10"], data_processed["co"],
+                                            data_processed["report"])
 
 def temp_func():
     sensor_dataframe = sergek_reader()   # Read the SERGEK's dataset
@@ -302,13 +350,12 @@ def temp_func():
     print("Closest Sensor:")
     closest_sensor_dict = closest_sensor.to_dict()
 
-
     data_processed = index_calculator(closest_sensor_dict)
 
     aq_metrics_for_gpt_report = {
-        "pm25": closest_sensor_dict['pm25'],
-        "pm10": closest_sensor_dict['pm10'],
-        "co": closest_sensor_dict['co']
+        "pm25": int(float(closest_sensor_dict['pm25'])),
+        "pm10": int(float(closest_sensor_dict['pm10'])),
+        "co": int(float(closest_sensor_dict['co']))
     }
 
     data_processed.update({'pm25': int(float(closest_sensor_dict['pm25']))})
@@ -317,7 +364,9 @@ def temp_func():
 
     data_processed.update({"report": gpt_text_generator(aq_metrics_for_gpt_report)})
 
-    return generate_report_for_krisha(int(data_processed["aq_index_numeric"]), data_processed["aq_index_color"], 111, 222, 100, data_processed["report"])
+    return generate_report_for_an_apartment(int(data_processed["aq_index_numeric"]), data_processed["aq_index_color"], data_processed["color_pm25"],
+                                            data_processed["color_pm10"], data_processed["color_co"], data_processed["pm25"],
+                                            data_processed["pm10"], data_processed["co"], data_processed["report"])
 
 
 
