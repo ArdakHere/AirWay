@@ -3,11 +3,26 @@ import streamlit as st
 st.set_page_config(
     page_title="Hello",
     page_icon="👋",
+    backgroundColor = "#F0F0F0"
 )
+
+def set_background(color):
+    hex_color = f'#{color}'
+    html = f"""
+        <style>
+            body {{
+                background-color: {hex_color};
+            }}
+        </style>
+    """
+    st.markdown(html, unsafe_allow_html=True)
+
+set_background("f0f0f0")
 
 st.write("# We Help Bring Awareness to Almaty's Air Quality 👋")
 
 st.sidebar.success("Select a demo above.")
+
 
 st.markdown(
     """
@@ -24,3 +39,4 @@ st.markdown(
     - Almaty Ecology Challenge Organization Team
 """
 )
+

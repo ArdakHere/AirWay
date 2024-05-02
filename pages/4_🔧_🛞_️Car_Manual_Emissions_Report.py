@@ -1,6 +1,9 @@
 import streamlit as st
+import matplotlib.pyplot as plt
 
 from back_kolesa import kolesa_html_download, kolesa_html_reader, gpt_caller
+from car_emission_generator import generate_report_for_car_emission
+
 st.set_page_config(layout="centered", page_title="Car Manual Emissions Report", page_icon="🔧🛞")
 
 st.write("")
@@ -25,19 +28,30 @@ car_data["N-wheel drive"] = st.text_input('Enter the wheel drive configuration')
 report = gpt_caller(car_data)
 
 if st.button('Generate Report'):
-    raw_report = gpt_caller(car_data)
-    # {
-    #     "impact": "5/10",
-    #     "co2": 1920, 
-    #     "pm2_5": 192, 
-    #     "pm10": 56, 
-    #     "recommendation": "Regular maintenance and tuning can improve fuel efficiency and reduce emissions. Consider using public transport, carpooling, or switching to electric vehicles to reduce emissions further.", 
-    #     "trees_killed": 11
-    # }
-
-    # generate_report_for_car_emission
-
     if report:
-        st.image(gpt_caller(car_data), caption='Report', use_column_width=True)
-        # Display HTML content with taller st.text
+        data = gpt_caller(car_data)
+        report = generate_report_for_car_emission(data, car_data)
 
+        labels = []
+        values = []
+        explode = ()
+        for i, key in enumerate(data["chemicals"]):
+            labels.append(key.upper())
+            values.append(data["chemicals"][key])
+            explode += (0,)
+            val = data["chemicals"][key]
+
+        fig1, ax1 = plt.subplots()
+        ax1.pie(values, explode=explode, labels=labels, autopct='%1.1f%%',
+                shadow=False, startangle=90)
+        ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+
+        with open(data['report_path_pdf'], "rb") as file:
+                st.download_button(
+                    label="Download Report as PDF",
+                    data=file,
+                    file_name=f"car_report_{car_data['car_title']}.pdf",
+                    mime="image/png"
+                )
+            
+        st.image(data['report_path'], caption='Report', use_column_width=True)
