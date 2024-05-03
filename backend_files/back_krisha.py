@@ -9,7 +9,7 @@ client = OpenAI(api_key="sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykO
 
 def sergek_reader():
     # Read the Parquet file into a DataFrame
-    df = pd.read_parquet("/Users/ardaka/Desktop/data_sensor.parquet")
+    df = pd.read_parquet("./sergek_dataset/data_sensor.parquet")
 
     # Filter relevant columns
     filtered_df = df[['location_id', 'Latitude', 'Longtitude', 'pm25', 'pm10', 'co']]
