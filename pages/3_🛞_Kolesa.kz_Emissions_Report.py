@@ -1,6 +1,8 @@
 import streamlit as st
 
-from back_kolesa import kolesa_html_download, kolesa_html_reader, gpt_caller
+from back_kolesa import *
+from plotter import *
+
 st.set_page_config(layout="centered", page_title="Kolesa.kz Emissions Report", page_icon="🛞")
 
 st.title('Kolesa Ecology Report Generator')
@@ -13,13 +15,13 @@ if st.button('Generate Report'):
     # Check if keyword is not empty
     if keyword:
         # Download HTML content and display it
-        html_code = kolesa_html_download(keyword)
-        car_data = kolesa_html_reader(html_code)
-        report = gpt_caller(car_data)
 
-        if report:
-            # Display HTML content with taller st.text
-            st.text_area(label="Report", value=report, height=500, max_chars=None, key=None)
+        car_data = kolesa_html_reader_file("car.txt")
+
+        st.image(generate_report_for_a_car(car_data["car_title"], car_data["generation"],
+                                  car_data["engine_displacement"], car_data["distance run (km)"],
+                                  car_data["N-wheel drive"]), caption='Airway', use_column_width=True)
+
 
 
 else:

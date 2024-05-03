@@ -1,16 +1,16 @@
-/Users/ardaka/Desktop/report_generator/venv/bin/python /Users/ardaka/Desktop/report_generator/back_kolesa.py
+
 <!doctype html>
 <html lang="ru" xmlns:xlink="http://www.w3.org/1999/xlink">
 <head>
     <meta charset="UTF-8">
     <!--SEO-->
-    <title>Продажа Chevrolet Malibu 2020 года в Алматы - №168943273: цена 10540000&#8376;. Купить Chevrolet Malibu — Колёса</title>
-    <meta name="description" content="«Колеса» - объявление №168943273 о продаже Chevrolet Malibu 2020 года в Алматы за 10540000&#8376;. Описание, цена, фото, характеристики Chevrolet Malibu 2020 года"/>
-    <meta name="keywords" content="продажа, chevrolet, malibu, 2020, года, алматы, №168943273, цена, 10540000amp8376, купить, колёса"/>
+    <title>Продажа Kia Picanto 2013 года в Алматы - №168178552: цена 4210000&#8376;. Купить Kia Picanto — Колёса</title>
+    <meta name="description" content="«Колеса» - объявление №168178552 о продаже Kia Picanto 2013 года в Алматы за 4210000&#8376;. Описание, цена, фото, характеристики Kia Picanto 2013 года"/>
+    <meta name="keywords" content="продажа, kia, picanto, 2013, года, алматы, №168178552, цена, 4210000amp8376, купить, колёса"/>
     <meta property="fb:pages" content="487915631223232" />
     <meta name="yandex-verification" content="3a6b5a2f06b43bce" />
-            <link href="//m.kolesa.kz/a/show/168943273" media="only screen and (max-width: 640px)" rel="alternate">
-                    <link rel="canonical" href="https://kolesa.kz/a/show/168943273"/>
+            <link href="//m.kolesa.kz/a/show/168178552" media="only screen and (max-width: 640px)" rel="alternate">
+                    <link rel="canonical" href="https://kolesa.kz/a/show/168178552"/>
                     <meta name='wmail-verification' content='69476cf770e74b47e29b023e1eedfdb9' />
             <!--SEO-->
     <meta name="author" content="Kolesa" />
@@ -47,12 +47,12 @@
         };
     </script>
 
-            <meta property="og:title" content="Chevrolet Malibu 2020 г."/>
+            <meta property="og:title" content="Kia Picanto 2013 г."/>
 
-    <meta property="og:url" content="/a/show/168943273"/>
+    <meta property="og:url" content="/a/show/168178552"/>
 
 
-<meta property="og:image" content="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-full.webp"/>
+<meta property="og:image" content="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-full.webp"/>
 
 
     <script>
@@ -144,12 +144,12 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
         googletag.pubads().collapseEmptyDivs();
 
                     googletag.pubads().setTargeting('kl_category', 'Машины');
-                    googletag.pubads().setTargeting('kl_price', '7200000-10800000');
-                    googletag.pubads().setTargeting('kl_year', '2017-2025');
-                    googletag.pubads().setTargeting('kl_auto.car.mm', 'Chevrolet Malibu');
+                    googletag.pubads().setTargeting('kl_price', '3600000-7200000');
+                    googletag.pubads().setTargeting('kl_year', '0-2017');
+                    googletag.pubads().setTargeting('kl_auto.car.mm', 'Kia Picanto');
                     googletag.pubads().setTargeting('kl_auto.condition', 'С пробегом');
                     googletag.pubads().setTargeting('kl_city', 'Алматы');
-                    googletag.pubads().setTargeting('kl_url', '/a/show/168943273');
+                    googletag.pubads().setTargeting('kl_url', '/a/show/168178552');
 
         googletag.enableServices();
     });
@@ -158,7 +158,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
     </head>
 <body class="">
     <script>
-    var data = {"isProduction":true,"auth-url":"\/user\/ajax-xdm-auth\/","appHost":"\/\/app.kolesa.kz","views":{"link":"\/ms\/views\/kolesa"},"language":"ru","selectLanguage":{"enabled":true,"current":"ru","alias":"ru","languages":{"kz":"\u049a\u0430\u0437\u0430\u049b\u0448\u0430","ru":"\u0420\u0443\u0441\u0441\u043a\u0438\u0439"},"pageUrl":"\/a\/show\/168943273"},"staticLink":"\/\/kolesa.kz\/static\/frontend","cdn":{"cookie":"kl_cdn_host","defaultHost":"kolesa-photos.kcdn.online"},"limitValues":5,"multiSelectDelimiter":",","sizeNotifications":5,"isCreditPage":false,"isResalePage":false,"hasVerifiedPhone":false,"globalUserId":null,"listedUsersToReport":[18949883],"isNYEnabled":false,"buckyConfig":{"host":"\/ms\/rum","aggregationInterval":100,"sample":1},"buckyPrefix":"kolesa.frontend","sentryConfig":{"isEnabled":true,"blackList":"metrika,Non-Error promise rejection,partner-code-bundles,pcode,AdSDK,gtm.js,Invalid scheme,chrome-extension,anonymous,ntp is not defined,pubads,pagead,freed script,adfox,illegal character,Script error,Invalid scheme,Script error.,"},"advisory":{"url":"\/a\/ajax-advisory\/","timeoutSeconds":5,"cookieName":"promo_advisory_new","cookieDeclineTimeout":86400,"cookieApplyTimeout":86400},"guideHints":{"url":"\/ajax-get-guide-hints\/","cookiePrefix":"gh_","isUserAdvertOwner":false},"accountFill":{"url":"https:\/\/pay.kolesa.kz\/cabinet?"},"urlToSettings":"\/passport\/settings\/","gatewayScript":["https:\/\/pay.kolesa.kz\/static\/js\/gateway\/common\/iframe-loader.js"],"paidServicesUrls":{"move-to-archive":"\/my\/ajax-move-to-archive\/"},"referrerUrl":"","urlSignin":"\/signin","sectionName":"\u041c\u0430\u0448\u0438\u043d\u044b","categoryName":"\u041b\u0435\u0433\u043a\u043e\u0432\u044b\u0435","advert":{"id":168943273,"userId":22683244,"storage":"live","category":"auto.car","section":"cars","title":"Chevrolet Malibu 2020 \u0433.","region":"\u0410\u043b\u043c\u0430\u0442\u044b","isHideFraudWarning":true,"isOwn":false,"nbPhones":1,"phonePrefix":"+7 778","isNewAuto":false,"photo":{"x1":"https:\/\/kolesa-photos.kcdn.online\/webp\/d5\/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a\/1-120x90.webp","x2":"https:\/\/kolesa-photos.kcdn.online\/webp\/d5\/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a\/1-240x180.webp","alt":"Chevrolet Malibu 2020 \u0433\u043e\u0434\u0430 \u0437\u0430 10 540 000 \u0442\u0433. \u0432 \u0410\u043b\u043c\u0430\u0442\u044b"},"hasCallbackButton":false},"otherUserAdvertsUrl":"\/a\/ajax-other-user-adverts\/","url-phone-rules":"\/a\/ajax-load-phone-rules\/","urlSaveBid":"\/pro\/saveBid\/","urlCheater":"https:\/\/kolesa.kz\/content\/kak-ne-stat-zhertvoj-moshennikov-pri-pokupke-i-prodazhe-avto\/","urlAuthorize":"\/signin?backUrl=https%3A%2F%2Fkolesa.kz%2Fa%2Fshow%2F168943273%3FfromAuthorize%3D1","product":{"id":168943273,"unitPrice":"10540000","name":"Chevrolet Malibu","city":"\u0410\u043b\u043c\u0430\u0442\u044b","categoryId":2,"unifiedCategory":2},"dataForGA":{"section":"auto","category":"car","region":"almatinskaya-oblast"},"recaptchaData":{"scriptUrl":"https:\/\/www.google.com\/recaptcha\/api.js","siteKey":"6LetdlYUAAAAAPK0KOKQ-mueKeAbqsID_A5NKQzq"},"contactButtons":[],"urlSendMessage":"\/messages\/?advertId=168943273&source=advert&category=auto.car&section=cars","nps":{"project":"kolesa.kz","data":{"category":"\u041b\u0435\u0433\u043a\u043e\u0432\u044b\u0435","section":"\u041c\u0430\u0448\u0438\u043d\u044b"},"url":"https:\/\/kolesa.kz\/ms\/nps\/"},"userLogin":null,"route":"advert:show","controller":"advert","action":"show","app":"Frontend","userId":0};
+    var data = {"isProduction":true,"auth-url":"\/user\/ajax-xdm-auth\/","appHost":"\/\/app.kolesa.kz","views":{"link":"\/ms\/views\/kolesa"},"language":"ru","selectLanguage":{"enabled":true,"current":"ru","alias":"ru","languages":{"kz":"\u049a\u0430\u0437\u0430\u049b\u0448\u0430","ru":"\u0420\u0443\u0441\u0441\u043a\u0438\u0439"},"pageUrl":"\/a\/show\/168178552"},"staticLink":"\/\/kolesa.kz\/static\/frontend","cdn":{"cookie":"kl_cdn_host","defaultHost":"astps-photos-kl.kcdn.kz"},"limitValues":5,"multiSelectDelimiter":",","sizeNotifications":5,"isCreditPage":false,"isResalePage":false,"hasVerifiedPhone":false,"globalUserId":null,"listedUsersToReport":[18949883],"isNYEnabled":false,"buckyConfig":{"host":"\/ms\/rum","aggregationInterval":100,"sample":1},"buckyPrefix":"kolesa.frontend","sentryConfig":{"isEnabled":true,"blackList":"metrika,Non-Error promise rejection,partner-code-bundles,pcode,AdSDK,gtm.js,Invalid scheme,chrome-extension,anonymous,ntp is not defined,pubads,pagead,freed script,adfox,illegal character,Script error,Invalid scheme,Script error.,"},"advisory":{"url":"\/a\/ajax-advisory\/","timeoutSeconds":5,"cookieName":"promo_advisory_new","cookieDeclineTimeout":86400,"cookieApplyTimeout":86400},"guideHints":{"url":"\/ajax-get-guide-hints\/","cookiePrefix":"gh_","isUserAdvertOwner":false},"accountFill":{"url":"https:\/\/pay.kolesa.kz\/cabinet?"},"urlToSettings":"\/passport\/settings\/","gatewayScript":["https:\/\/pay.kolesa.kz\/static\/js\/gateway\/common\/iframe-loader.js"],"paidServicesUrls":{"move-to-archive":"\/my\/ajax-move-to-archive\/"},"referrerUrl":"","urlSignin":"\/signin","sectionName":"\u041c\u0430\u0448\u0438\u043d\u044b","categoryName":"\u041b\u0435\u0433\u043a\u043e\u0432\u044b\u0435","advert":{"id":168178552,"userId":22683244,"storage":"live","category":"auto.car","section":"cars","title":"Kia Picanto 2013 \u0433.","region":"\u0410\u043b\u043c\u0430\u0442\u044b","isHideFraudWarning":true,"isOwn":false,"nbPhones":1,"phonePrefix":"+7 778","isNewAuto":false,"photo":{"x1":"https:\/\/astps-photos-kl.kcdn.kz\/webp\/86\/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0\/1-120x90.webp","x2":"https:\/\/astps-photos-kl.kcdn.kz\/webp\/86\/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0\/1-240x180.webp","alt":"Kia Picanto 2013 \u0433\u043e\u0434\u0430 \u0437\u0430 4 210 000 \u0442\u0433. \u0432 \u0410\u043b\u043c\u0430\u0442\u044b"},"hasCallbackButton":false},"otherUserAdvertsUrl":"\/a\/ajax-other-user-adverts\/","url-phone-rules":"\/a\/ajax-load-phone-rules\/","urlSaveBid":"\/pro\/saveBid\/","urlCheater":"https:\/\/kolesa.kz\/content\/kak-ne-stat-zhertvoj-moshennikov-pri-pokupke-i-prodazhe-avto\/","urlAuthorize":"\/signin?backUrl=https%3A%2F%2Fkolesa.kz%2Fa%2Fshow%2F168178552%3FfromAuthorize%3D1","product":{"id":168178552,"unitPrice":"4210000","name":"Kia Picanto","city":"\u0410\u043b\u043c\u0430\u0442\u044b","categoryId":2,"unifiedCategory":2},"dataForGA":{"section":"auto","category":"car","region":"almatinskaya-oblast"},"recaptchaData":{"scriptUrl":"https:\/\/www.google.com\/recaptcha\/api.js","siteKey":"6LetdlYUAAAAAPK0KOKQ-mueKeAbqsID_A5NKQzq"},"contactButtons":[],"urlSendMessage":"\/messages\/?advertId=168178552&source=advert&category=auto.car&section=cars","nps":{"project":"kolesa.kz","data":{"category":"\u041b\u0435\u0433\u043a\u043e\u0432\u044b\u0435","section":"\u041c\u0430\u0448\u0438\u043d\u044b"},"url":"https:\/\/kolesa.kz\/ms\/nps\/"},"userLogin":null,"route":"advert:show","controller":"advert","action":"show","app":"Frontend","userId":0};
 </script>
 
 
@@ -223,7 +223,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
         <li class="locale-menu__item">
             <a
                 class="locale-menu__link"
-                href="/language/?backUrl=%2Fa%2Fshow%2F168943273&language=kz"
+                href="/language/?backUrl=%2Fa%2Fshow%2F168178552&language=kz"
                 rel="nofollow"
             >
                 Қазақша
@@ -233,7 +233,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
         <li class="locale-menu__item">
             <a
                 class="locale-menu__link locale-menu__link--active"
-                href="/language/?backUrl=%2Fa%2Fshow%2F168943273&language=ru"
+                href="/language/?backUrl=%2Fa%2Fshow%2F168178552&language=ru"
                 rel="nofollow"
             >
                 Русский
@@ -360,7 +360,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
         <span class="label">Подать объявление</span>
     </a>
     <div class="a-add__hint">
-        995&nbsp;812 уже на сайте
+        999&nbsp;610 уже на сайте
     </div>
 </div>
             </div>
@@ -385,16 +385,16 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                 <a class="breadcrumbs__link" href="/cars/" itemprop="url">Легковые</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/" itemprop="url">Седаны</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/" itemprop="url">Хэтчбеки 5-дв..</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/avtokredit/" itemprop="url">Седаны Купить в кредит</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/avtokredit/" itemprop="url">Хэтчбеки 5-дв.. Купить в кредит</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/avtokredit/chevrolet/" itemprop="url">Chevrolet</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/avtokredit/kia/" itemprop="url">Kia</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/avtokredit/chevrolet/malibu/" itemprop="url">Chevrolet Malibu</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/avtokredit/kia/picanto/" itemprop="url">Kia Picanto</a>
             </li>
         </ol>
 
@@ -412,7 +412,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="offer__title"
                     data-test="offer-title"
                 >
-                    <span itemprop="brand"> Chevrolet Malibu </span> <span class="year"> 2020</span> <span>г.</span>
+                    <span itemprop="brand"> Kia Picanto </span> <span class="year"> 2013</span> <span>г.</span>
                 </h1>
 
 
@@ -439,7 +439,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
 
                             <div class="offer__actions">
                     <div class="a-title__buttons ">
-    <div class="tooltip-container a-title__button my-favorite-icon" data-id="168943273" data-category="auto">
+    <div class="tooltip-container a-title__button my-favorite-icon" data-id="168178552" data-category="auto">
         <span
             class="icon-kl icon-kl-empty-fav"
             data-test="icon-favorites-empty"
@@ -447,7 +447,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
         <div class="tooltip">
             Добавить в избранное        </div>
     </div>
-    <div class="tooltip-container a-title__button js-note-edit offer__note-edit" data-id="168943273">
+    <div class="tooltip-container a-title__button js-note-edit offer__note-edit" data-id="168178552">
         <span class="icon-kl icon-kl-note-gray"></span>
         <div class="tooltip">
             Добавить заметку        </div>
@@ -455,10 +455,10 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
 </div>
                 </div>
                     </div>
-                    <div class="note offer__note" data-id="168943273">
+                    <div class="note offer__note" data-id="168178552">
     <div class="note__message">
-        <span class="note__message-content js-note-message" data-id="168943273"></span>
-        <div class="tooltip-container note__remove js-note-remove" data-id="168943273">
+        <span class="note__message-content js-note-message" data-id="168178552"></span>
+        <div class="tooltip-container note__remove js-note-remove" data-id="168178552">
             <span class="fi-close-big js__note-remove-button"></span>
             <div class="tooltip">
                 Удалить заметку            </div>
@@ -467,7 +467,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
     <div class="note__edit">
         <input type="text" class="note__text" required name="note" placeholder="Заметка к объявлению (видна только вам)">
         <button class="note__clear fi-close-big js-note-clear"></button>
-        <input type="button" class="note__save js-note-save default-button" value="Сохранить" data-id="168943273">
+        <input type="button" class="note__save js-note-save default-button" value="Сохранить" data-id="168178552">
     </div>
 </div>
             </header>
@@ -484,7 +484,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                                     class="offer__price"
                                     data-test="offer-price"
                                 >
-                                        10&nbsp;540&nbsp;000
+                                        4&nbsp;210&nbsp;000
     <span class="a-tenge">₸</span>
 
 
@@ -497,7 +497,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                                                         Ежемесячный платеж
                                                     </h6>
                                                     <div class="a-credit__amount isHighlighted">
-                                                        325&nbsp;494
+                                                        130&nbsp;013
                                                         <span class="a-tenge">₸</span>
                                                     </div>
                                                 </div>
@@ -506,7 +506,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                                                         Первоначальный взнос
                                                     </h6>
                                                     <div class="a-credit__amount">
-                                                        527&nbsp;000
+                                                        210&nbsp;500
                                                         <span class="a-tenge">₸</span>
                                                     </div>
                                                 </div>
@@ -542,20 +542,20 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                             <dt class="value-title" title="Поколение">
                                 <span>Поколение</span>
                             </dt>
-                                                            <dd class="value">2018 - н.в. 9 поколение рестайлинг</dd>
+                                                            <dd class="value">2011 - 2015 2 поколение (TA)</dd>
                                                     </dl>
                                                                                                             <dl class="">
                             <dt class="value-title" title="Кузов">
                                 <span>Кузов</span>
                             </dt>
-                                                            <dd class="value">седан</dd>
+                                                            <dd class="value">хэтчбек</dd>
                                                     </dl>
                                                                                                             <dl class="">
                             <dt class="value-title" title="Объем двигателя, л">
                                 <span>Объем двигателя, л</span>
                             </dt>
                                                                                                 <dd class="value">
-                                        2 (бензин)
+                                        1.2 (бензин)
                                     </dd>
                                                                                     </dl>
                                                                                                             <dl class="">
@@ -563,7 +563,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                                 <span>Пробег</span>
                             </dt>
                                                                                                 <dd class="value">
-                                        61 409 км
+                                        111 426 км
                                     </dd>
                                                                                     </dl>
                                                                                                             <dl class="">
@@ -572,7 +572,27 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                             </dt>
                                                             <dd class="value">автомат</dd>
                                                     </dl>
-
+                                                                                                            <dl class="">
+                            <dt class="value-title" title="Привод">
+                                <span>Привод</span>
+                            </dt>
+                                                            <dd class="value">передний привод</dd>
+                                                    </dl>
+                                                                                                            <dl class="">
+                            <dt class="value-title" title="Руль">
+                                <span>Руль</span>
+                            </dt>
+                                                            <dd class="value">слева</dd>
+                                                    </dl>
+                                                                                                            <dl class="">
+                            <dt class="value-title" title="Цвет">
+                                <span>Цвет</span>
+                            </dt>
+                                                                                                <dd class="value">
+                                        черный
+                                    </dd>
+                                                                                    </dl>
+                                                                                                            <dl class="">
                             <dt class="value-title" title="Растаможен в Казахстане">
                                 <span>Растаможен в Казахстане</span>
                             </dt>
@@ -668,7 +688,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                                                 class="offer__button-subtext"
                                                 data-test="resale-auto-quantity"
                                             >
-                                                653 авто в продаже
+                                                673 авто в продаже
                                             </p>
                                         </a>
 
@@ -748,18 +768,18 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
     <button
         class="gallery__main js__gallery-main"
         type="button"
-        data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-full.webp"
+        data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-full.webp"
                 disabled="disabled"
     >
         <picture>
 
-                <source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-750x470.webp 1x,https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-1200x752.webp 1.5x,https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-1200x752.webp 2x" type="image/webp">
-                <source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-750x470.jpg 1x,https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-1200x752.jpg 1.5x,https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-1200x752.jpg 2x" type="image/jpeg">
+                <source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-750x470.webp 1x,https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-1200x752.webp 1.5x,https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-1200x752.webp 2x" type="image/webp">
+                <source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-750x470.jpg 1x,https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-1200x752.jpg 1.5x,https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-1200x752.jpg 2x" type="image/jpeg">
 
             <img
-                src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-750x470.webp"
-                alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы"
-                title="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы"
+                src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-750x470.webp"
+                alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы"
+                title="Kia Picanto 2013 года за 4 210 000 тг. в Алматы"
                  onerror="loadErrorHandler(this)"             />
         </picture>
             </button>
@@ -770,11 +790,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb active"
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/1-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/1-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -786,11 +806,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/2-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/2-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/2-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/2-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/2-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/2-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/2-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 2"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/2-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/2-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/2-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/2-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/2-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 2"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -802,11 +822,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/3-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/3-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/3-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/3-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/3-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/3-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/3-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 3"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/3-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/3-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/3-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/3-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/3-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 3"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -818,11 +838,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/4-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/4-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/4-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/4-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/4-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/4-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/4-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 4"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/4-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/4-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/4-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/4-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/4-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 4"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -834,11 +854,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/5-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/5-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/5-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/5-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/5-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/5-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/5-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 5"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/5-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/5-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/5-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/5-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/5-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 5"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -850,11 +870,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/6-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/6-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/6-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/6-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/6-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/6-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/6-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 6"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/6-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/6-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/6-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/6-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/6-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 6"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -866,11 +886,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/7-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/7-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/7-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/7-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/7-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/7-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/7-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 7"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/7-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/7-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/7-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/7-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/7-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 7"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -882,11 +902,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/8-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/8-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/8-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/8-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/8-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/8-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/8-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 8"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/8-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/8-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/8-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/8-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/8-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 8"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -898,11 +918,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/9-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/9-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/9-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/9-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/9-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/9-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/9-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 9"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/9-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/9-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/9-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/9-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/9-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 9"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -914,11 +934,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/10-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/10-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/10-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/10-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/10-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/10-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/10-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 10"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/10-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/10-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/10-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/10-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/10-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 10"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -930,11 +950,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/11-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/11-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/11-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/11-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/11-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/11-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/11-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 11"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/11-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/11-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/11-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/11-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/11-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 11"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -946,11 +966,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/12-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/12-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/12-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/12-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/12-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/12-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/12-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 12"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/12-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/12-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/12-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/12-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/12-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 12"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -962,11 +982,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/13-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/13-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/13-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/13-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/13-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/13-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/13-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 13"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/13-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/13-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/13-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/13-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/13-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 13"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -978,75 +998,11 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                     class="gallery__thumb-image js__gallery-thumb "
                     type="button"
                     data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/14-full.jpg"
+                    data-href="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/14-full.jpg"
                 >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/14-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/14-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/14-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/14-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/14-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 14"
-        width="120"
-        height="90"
-        onerror="loadErrorHandler(this)"
-        loading="lazy"
-        ></picture>                </button>
-            </li>
-                    <li class="gallery__thumb">
-                <button
-                    class="gallery__thumb-image js__gallery-thumb "
-                    type="button"
-                    data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/15-full.jpg"
-                >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/15-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/15-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/15-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/15-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/15-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 15"
-        width="120"
-        height="90"
-        onerror="loadErrorHandler(this)"
-        loading="lazy"
-        ></picture>                </button>
-            </li>
-                    <li class="gallery__thumb">
-                <button
-                    class="gallery__thumb-image js__gallery-thumb "
-                    type="button"
-                    data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/16-full.jpg"
-                >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/16-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/16-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/16-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/16-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/16-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 16"
-        width="120"
-        height="90"
-        onerror="loadErrorHandler(this)"
-        loading="lazy"
-        ></picture>                </button>
-            </li>
-                    <li class="gallery__thumb">
-                <button
-                    class="gallery__thumb-image js__gallery-thumb "
-                    type="button"
-                    data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/17-full.jpg"
-                >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/17-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/17-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/17-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/17-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/17-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 17"
-        width="120"
-        height="90"
-        onerror="loadErrorHandler(this)"
-        loading="lazy"
-        ></picture>                </button>
-            </li>
-                    <li class="gallery__thumb">
-                <button
-                    class="gallery__thumb-image js__gallery-thumb "
-                    type="button"
-                    data-content-type="image"
-                    data-href="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/18-full.jpg"
-                >
-                    <picture class=""><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/18-120x90.webp 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/18-240x180.webp 2x" type="image/webp"><source srcset="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/18-120x90.jpg 1x, https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/18-240x180.jpg 2x" type="image/jpeg"><img
-        src="https://kolesa-photos.kcdn.online/webp/d5/d561a5fc-c0ce-46ab-a56e-9bcddbaaff9a/18-120x90.jpg"
-        alt="Chevrolet Malibu 2020 года за 10 540 000 тг. в Алматы – фото 18"
+                    <picture class=""><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/14-120x90.webp 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/14-240x180.webp 2x" type="image/webp"><source srcset="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/14-120x90.jpg 1x, https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/14-240x180.jpg 2x" type="image/jpeg"><img
+        src="https://astps-photos-kl.kcdn.kz/webp/86/86cb6a0f-d0de-47d3-a8cb-9bb1a0dc35a0/14-120x90.jpg"
+        alt="Kia Picanto 2013 года за 4 210 000 тг. в Алматы – фото 14"
         width="120"
         height="90"
         onerror="loadErrorHandler(this)"
@@ -1062,7 +1018,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
             <div class="offer__content-block offer__description">
 
                             <div class="text">
-                    <p>литые диски, тонировка, дневные ходовые огни, противотуманки, кожа, комбинированный, аудиосистема, bluetooth, MP3, USB, климат-контроль, ГУР, ABS, SRS, бесключевой доступ, полный электропакет, круиз-контроль, мультируль, подогрев сидений, парктроники, налог уплачен, техосмотр пройден, вложений не требует</p>
+                    <p>тонировка, дневные ходовые огни, противотуманки, велюр, аудиосистема, bluetooth, MP3, USB, ГУР, ABS, SRS, сигнализация, полный электропакет, центрозамок, кондиционер, мультируль, налог уплачен, техосмотр пройден, вложений не требует</p>
                 </div>
 
 
@@ -1079,7 +1035,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                                     <div
                                         class="a-calculator__content"
                                         id="calcRenderBlock"
-                                        data-url="/credit/get-calculator/168943273/"
+                                        data-url="/credit/get-calculator/168178552/"
                                     ></div>
                                 </div>
                             </div>
@@ -1097,9 +1053,9 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
 </div>
 
                                                                             <div class="offer__content-block offer__info">
-                                <div class="offer__info-views">Объявление посмотрели <span class="nb-views">0 раз</span> c 27 апреля</div>
+                                <div class="offer__info-views">Объявление посмотрели <span class="nb-views">0 раз</span> c 3 мая</div>
                                 <div class="offer__info-claim">
-                                        <a class="claim-link js-claim" href="/a/claim/168943273/">
+                                        <a class="claim-link js-claim" href="/a/claim/168178552/">
         <span class="fi-block-sign"></span>Пожаловаться    </a>
 
                                 </div>
@@ -1113,16 +1069,16 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                 <a class="breadcrumbs__link" href="/cars/almaty/" itemprop="url">Легковые в Алматы</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/almaty/" itemprop="url">Седаны в Алматы</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/almaty/" itemprop="url">Хэтчбеки 5-дв.. в Алматы</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/avtokredit/almaty/" itemprop="url">Седаны Купить в кредит в Алматы</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/avtokredit/almaty/" itemprop="url">Хэтчбеки 5-дв.. Купить в кредит в Алматы</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/avtokredit/chevrolet/almaty/" itemprop="url">Седаны Купить в кредит Chevrolet в Алматы</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/avtokredit/kia/almaty/" itemprop="url">Хэтчбеки 5-дв.. Купить в кредит Kia в Алматы</a>
             </li>
                     <li class="breadcrumbs__item" itemtype="http://data-vocabulary.org/Breadcrumb">
-                <a class="breadcrumbs__link" href="/cars/sedan/avtokredit/chevrolet/malibu/almaty/" itemprop="url">Седаны Купить в кредит Chevrolet Malibu в Алматы</a>
+                <a class="breadcrumbs__link" href="/cars/hatchback/avtokredit/kia/picanto/almaty/" itemprop="url">Хэтчбеки 5-дв.. Купить в кредит Kia Picanto в Алматы</a>
             </li>
         </ol>
 
@@ -1198,7 +1154,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                         </a>
                     </li>
                                             <li class="ui-footer__menu-item">
-                            <a class="ui-footer__link" href="//m.kolesa.kz/a/show/168943273">
+                            <a class="ui-footer__link" href="//m.kolesa.kz/a/show/168178552">
                                 Мобильная версия сайта
                             </a>
                         </li>
@@ -1324,7 +1280,7 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
 </footer>
                     </div>
             <script>
-            window.digitalData = {"version":"1.1.2","page":{"type":"product","category":"Advert Product Detail"},"website":{"environment":"production","type":"desktop"},"user":{"isLoggedIn":false},"product":{"name":"Chevrolet Malibu 2020 г.","id":168943273,"publicationDate":"2024-04-27T23:59:59+05:00","isCreditAvailable":true,"isNewAuto":false,"isTradeInAuto":false,"seller":{"userId":22683244},"photoCount":18,"section":"auto","categoryString":"auto.car","category":["auto","auto.car"],"categoryId":"2","availability":"В наличии","region":"KZ-ALM","city":"almaty","attributes":{"model":"Malibu","brand":"Chevrolet","avgPrice":11282000},"lastUpdate":"2024-04-27T13:29:15+05:00","status":"live","unitPrice":10540000,"url":"https:\/\/kolesa.kz\/a\/show\/168943273","appliedPaidServices":["Стать VIP","Отправить в горячие","Поднято наверх"],"video":false},"context":{"ip":"185.48.148.175"}};
+            window.digitalData = {"version":"1.1.2","page":{"type":"product","category":"Advert Product Detail"},"website":{"environment":"production","type":"desktop"},"user":{"isLoggedIn":false},"product":{"name":"Kia Picanto 2013 г.","id":168178552,"publicationDate":"2024-05-03T23:59:59+05:00","isCreditAvailable":true,"isNewAuto":false,"isTradeInAuto":false,"seller":{"userId":22683244},"photoCount":14,"section":"auto","categoryString":"auto.car","category":["auto","auto.car"],"categoryId":"2","availability":"В наличии","region":"KZ-ALM","city":"almaty","attributes":{"model":"Picanto","brand":"Kia","avgPrice":4488000},"lastUpdate":"2024-05-03T12:54:18+05:00","status":"live","unitPrice":4210000,"url":"https:\/\/kolesa.kz\/a\/show\/168178552","appliedPaidServices":["Стать VIP","Отправить в горячие","Поднято наверх"],"video":false},"context":{"ip":"87.255.216.75"}};
 
     if (typeof listing != 'undefined'
         && listing.items.length > 0
@@ -1393,19 +1349,19 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
         cat    : "cars"
     };
 </script>
-                <script src="//kolesa.kz/static/frontend/js/ru.b9301e5f44.js"></script>
+                <script type="application/javascript" src="//kolesa.kz/static/frontend/js/ru.b9301e5f44.js"></script>
 
-        <script src="//kolesa.kz/static/frontend/js/main-old-browser.1bdf315a9f.js"></script>
-<script src="//kolesa.kz/static/frontend/js/main-vendor.5b874437d3.js"></script>
-<script src="//kolesa.kz/static/frontend/js/main-common.a2cb7e20d3.js"></script>
-<script src="//kolesa.kz/static/frontend/js/main-payment.5a74d0642f.js"></script>
+        <script type="application/javascript" src="//kolesa.kz/static/frontend/js/main-old-browser.1bdf315a9f.js"></script>
+<script type="application/javascript" src="//kolesa.kz/static/frontend/js/main-vendor.5b874437d3.js"></script>
+<script type="application/javascript" src="//kolesa.kz/static/frontend/js/main-common.a2cb7e20d3.js"></script>
+<script type="application/javascript" src="//kolesa.kz/static/frontend/js/main-payment.5a74d0642f.js"></script>
 
-        <script src="//kolesa.kz/static/frontend/js/main-hints.d0655ea60c.js"></script>
+        <script type="application/javascript" src="//kolesa.kz/static/frontend/js/main-hints.d0655ea60c.js"></script>
 
 
                     <script src="https://id.kolesa.kz/authToken.js"></script>
 
-    <script src="//kolesa.kz/static/frontend/js/main-a.6d0608ef30.js"></script>
+    <script type="application/javascript" src="//kolesa.kz/static/frontend/js/main-a.6d0608ef30.js"></script>
 
     <script type="text/x-template" id="fav-register">
     <div class="merge row">
@@ -1419,10 +1375,10 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
                 Необходимо авторизоваться            </div>
             <div class="modal-body">
                 <div>
-                                                            Чтобы сохранить больше 10 избранных объявлений нужно <a href="/signin?backUrl=https%3A%2F%2Fkolesa.kz%2Fa%2Fshow%2F168943273">войти</a> или <a href="/passport/register/">зарегистрироваться</a>                </div>
+                                                            Чтобы сохранить больше 10 избранных объявлений нужно <a href="/signin?backUrl=https%3A%2F%2Fkolesa.kz%2Fa%2Fshow%2F168178552">войти</a> или <a href="/passport/register/">зарегистрироваться</a>                </div>
             </div>
             <div class="modal-footer">
-                <a href="/signin?backUrl=https%3A%2F%2Fkolesa.kz%2Fa%2Fshow%2F168943273" class="btn button">
+                <a href="/signin?backUrl=https%3A%2F%2Fkolesa.kz%2Fa%2Fshow%2F168178552" class="btn button">
                     Войти                </a>
                 <a href="/passport/register/">
                     Не зарегистрирован?                </a>
@@ -1433,8 +1389,5 @@ j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNo
 
 
 
-        <script src="/cdn.js" async type="text/javascript"></script>
-</body>
+    </body>
 </html>
-
-

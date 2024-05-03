@@ -3,6 +3,7 @@ from reportlab.lib.pagesizes import *
 from PyPDF2 import PdfFileReader, PdfFileWriter
 from reportlab.pdfgen import canvas
 from datetime import datetime
+from back_kolesa import *
 import os
 
 APARTMENT_IMAGE_PATH = "./pages/apartmentReportTemplate.png"
@@ -48,10 +49,10 @@ def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color
                                      pm10: int, co: int, text: str) -> str:
     try:
         template = Image.open(APARTMENT_IMAGE_PATH)
-        drawCertificate = ImageDraw.Draw(template)    
+        drawCertificate = ImageDraw.Draw(template)
     except Exception:
         pass
-    
+
     R = aqIndexColor[0]
     G = aqIndexColor[1]
     B = aqIndexColor[2]
@@ -67,7 +68,6 @@ def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color
     Rco = coColor[0]
     Gco = coColor[1]
     Bco = coColor[2]
-    print(coColor)
 
     timestamp = datetime.now()
 
@@ -77,7 +77,7 @@ def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color
     pathToSave = "./report/plot.png"
     pathToPdf = "./report/plot_in_pdf"
 
-    
+
     metricFont = ImageFont.truetype('./font/FreeMono.ttf', 90)
     aqFont = ImageFont.truetype('./font/FreeMono.ttf', 110)
     labelFont = ImageFont.truetype('./font/FreeMono.ttf', 50)
@@ -118,6 +118,84 @@ def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color
         drawCertificate.text((1030, 600), str(co), font=metricFont, fill=(Rco, Gco, Bco))
 
     drawCertificate.text((50, 940), text, font=textFont, fill=(0, 0, 0), spacing=10)
+
+    template.save(pathToSave)
+
+    save_png_as_pdf(pathToSave, pathToPdf)
+
+    return pathToSave
+
+def generate_report_for_a_car(car_title: str, generation: int, engine_displacement: float, distance_run: int, Nwheel_drive: str):
+    try:
+        template = Image.open(APARTMENT_IMAGE_PATH)
+        drawCertificate = ImageDraw.Draw(template)
+    except Exception:
+        pass
+
+    car_data = {
+        "car_title": car_title,
+        "generation": generation,
+        "engine_displacement": engine_displacement,
+        "distance run (km)": distance_run,
+        "N-wheel drive": Nwheel_drive,
+    }
+
+    emissions_values, recommendations = gpt_metrics_caller(car_data)
+
+
+    pathToSave = "./car_report/plot.png"
+    pathToPdf = "./car_report/plot_in_pdf"
+
+    titleFont = ImageFont.truetype('./font/FreeMonoBold.ttf', 65)
+    metricFont = ImageFont.truetype('./font/FreeMono.ttf', 50)
+    textFont = ImageFont.truetype('./font/FreeMono.ttf', 34)
+    abbreviationFont = ImageFont.truetype('./font/FreeMono.ttf', 28)
+
+    second_lvl_heading = ImageFont.truetype('./font/FreeMonoBold.ttf', 55)
+
+
+    drawCertificate.text((230, 320), "Car Air Pollution Report", font=titleFont, fill=(0, 0, 0))
+
+    drawCertificate.text((70, 480), "Car info:", font=second_lvl_heading, fill=(0, 0, 0))
+
+    drawCertificate.text((100, 550), f"Car brand and model: {car_title}", font=textFont, fill=(0, 0, 0))
+    drawCertificate.text((100, 600), f"Generation: {generation}", font=textFont, fill=(0, 0, 0))
+    drawCertificate.text((100, 650), f"Engine displacement: {engine_displacement}", font=textFont, fill=(0, 0, 0))
+    drawCertificate.text((100, 700), f"Distance run: {distance_run}", font=textFont, fill=(0, 0, 0))
+    drawCertificate.text((100, 750), f"N-wheel drive: {Nwheel_drive}", font=textFont, fill=(0, 0, 0))
+
+    drawCertificate.text((70, 850), "Produced chemicals:", font=second_lvl_heading, fill=(0, 0, 0))
+
+    co2_val = emissions_values["CO2"]
+    drawCertificate.text((110, 980), "CO2:", font=titleFont, fill=(0, 0, 0))
+    drawCertificate.text((270, 1000), f"{co2_val}", font=textFont, fill=(0, 0, 0))
+
+    nox_val = emissions_values["NOx"]
+    drawCertificate.text((110, 1140), "NOx:", font=titleFont, fill=(0, 0, 0))
+    drawCertificate.text((270, 1160), f"{nox_val}", font=textFont, fill=(0, 0, 0))
+
+    so2_val = emissions_values["SO2"]
+    drawCertificate.text((670, 980), "SO2:", font=titleFont, fill=(0, 0, 0))
+    drawCertificate.text((830, 1000), f"{so2_val}", font=textFont, fill=(0, 0, 0))
+
+
+    pm25_val = emissions_values["PM2.5"]
+    drawCertificate.text((670, 1140), "PM2.5:", font=titleFont, fill=(0, 0, 0))
+    drawCertificate.text((910, 1160), f"{pm25_val}", font=textFont, fill=(0, 0, 0))
+
+
+    print(recommendations)
+    recommendations = re.sub(r'(\d+)\.', r'\n\1.', recommendations)
+
+    drawCertificate.text((70, 1300), f"Recommendation: {recommendations}", font=textFont, fill=(0, 0, 0), spacing=10)
+
+
+    # drawCertificate.text((70, 1450), "Index of air pollution out of 10:", font=second_lvl_heading, fill=(0, 0, 0))
+    #
+    # drawCertificate.text((70, 1600), "Calculated car tax:", font=second_lvl_heading, fill=(0, 0, 0))
+
+
+
 
     template.save(pathToSave)
 
@@ -166,8 +244,6 @@ def append_image_to_pdf(pdf_path: str, image_path: str) -> None:
     with open(pdf_path, "wb") as f:
         output.write(f)
 
-def generate_report_for_a_car(aqIndex: int, aqIndexColor: list, pm25: int, pm10: int, co: int, text: str) -> str:
-    pass
 
 
 #generate_report_for_an_apartment(25, [0, 0, 0], 25, 25, 25, "haha")

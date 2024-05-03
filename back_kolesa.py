@@ -11,6 +11,87 @@ from openai import OpenAI
 client = OpenAI(api_key="sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP")
 kolesa_data = ""
 
+def gpt_metrics_caller(data):
+    api_key = 'sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP'
+
+    endpoint = 'https://api.openai.com/v1/chat/completions'
+
+    prompt = ("Hey! I need you help with getting all the information related to emissions rating of the following car"
+              "and its eco-friendliness")
+
+    additional_data = {
+        "car_title": data["car_title"],
+        "generation": data["generation"],
+        "engine_displacement": data["engine_displacement"],
+        "distance run (km)": data["distance run (km)"],
+        "N-wheel drive": data["N-wheel drive"],
+    }
+
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {
+                "role": "system",
+                "content": "Hey! I am going to provide a data on a car and I want you to provide the values of CO2, NOx, SO2 and PM2.5 "
+                           "that the car emits when driving. You may not know the exact numbers, in this case provide approximate values "
+                           " Then, provide recommendations based on the values and the car related data that I will provide. Write each recommendation"
+                           "on a new line, and each recommendation should be shorter than 7 words, add new lines if the sentence is longer. "
+                           "Don't put periods at the ends of the sentences. "
+                           "..."
+                           "Provide the answer in the following format: "
+                           "CO2 is equal to"
+                           "NOx is equal to"
+                           "SO2 is equal to"
+                           "PM2.5 is equal to"
+                           "..."
+                           "Recommendations: are"
+                           "1."
+                           "2."
+                           "3."
+                           "..."
+            },
+            {
+                "role": "user",
+                "content": f"Car brand and model: {additional_data['car_title']}, Model generation: {additional_data['generation']}."
+                           f"Engine displacement: {additional_data['engine_displacement']}, N-wheel drive: {additional_data['N-wheel drive']}"
+                           f"Mileage (km): {additional_data['distance run (km)']}"
+
+            }
+        ],
+        max_tokens=300
+    )
+
+    report = response.choices[0].message.content
+
+    lines = report.split("\n")
+
+    # Extracting emissions values
+    emissions_values = {}
+    for line in lines:
+        if line.startswith("CO2"):
+            key, value = line.split("is equal to")
+            emissions_values[key.strip()] = value.strip()
+        elif line.startswith("NOx"):
+            key, value = line.split("is equal to")
+            emissions_values[key.strip()] = value.strip()
+        elif line.startswith("SO2"):
+            key, value = line.split("is equal to")
+            emissions_values[key.strip()] = value.strip()
+        elif line.startswith("PM2.5"):
+            key, value = line.split("is equal to")
+            emissions_values[key.strip()] = value.strip()
+
+    # Extracting recommendations
+    recommendations = ""
+    recommendations_started = False
+    for line in lines:
+        if recommendations_started:
+            recommendations += line.strip()
+        if line == "Recommendations:":
+            recommendations_started = True
+
+    return emissions_values, recommendations
+
 def gpt_caller(data):
     # Supply the car name and ask for emissions and other stuff
 
@@ -66,9 +147,7 @@ def gpt_caller(data):
 def kolesa_html_reader_file(filename):
     car_dict = {
         "car_title": None,
-        "city": None,
         "generation": None,
-        "body_type": None,
         "engine_displacement": None,
         "distance run (km)": None,
         "N-wheel drive": None,
@@ -77,7 +156,6 @@ def kolesa_html_reader_file(filename):
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             html_content = f.read()
-            print("HTML code read successfully.")
     except Exception as e:
         print(f"An error occurred: {e}")
 
@@ -91,8 +169,14 @@ def kolesa_html_reader_file(filename):
     for match in matches:
         title = match[0]
         value = match[1]
-        data[title] = value.strip()                 ### Fix the problem when certain fields are not given and mess up the structure
-                                                        ### of the car_dict
+        if title == "Поколение":
+            car_dict["generation"] = value.strip()
+        if title == "Объем двигателя, л":
+            car_dict["engine_displacement"] = value.strip()
+        if title == "Пробег":
+            car_dict["distance run (km)"] = value.strip()
+        if title == "Привод":
+            car_dict["N-wheel drive"] = value.strip()
 
     name_pattern = r'"name":"(.*?)"'
     name_match = re.search(name_pattern, html_content)
@@ -101,11 +185,6 @@ def kolesa_html_reader_file(filename):
 
         # Extract only the model name
         car_dict["car_title"] = car_dict["car_title"].split(' г.')[0]
-
-    for key, value in zip(list(car_dict.keys())[1:], data.values()):
-
-        car_dict[key] = value
-
 
     translator = Translator(to_lang="en", from_lang="ru")  # Translate to English, auto-detect input language
     i = 0
@@ -117,6 +196,7 @@ def kolesa_html_reader_file(filename):
             if value != None:
                 car_dict[key] = translator.translate(value)
 
+    return car_dict
 
 
 ##########################################################################################
@@ -127,9 +207,7 @@ def kolesa_html_reader_file(filename):
 def kolesa_html_reader(car_data):
     car_dict = {
         "car_title": None,
-        "city": None,
         "generation": None,
-        "body_type": None,
         "engine_displacement": None,
         "distance run (km)": None,  ## Mileage HAS to be specified
         "N-wheel drive": None,
@@ -182,14 +260,9 @@ def kolesa_html_download(url):
         if response.status_code == 200:
             return response.text
         else:
-            print(f"Failed to download HTML. Status code: {response.status_code}")
             return None
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
 
 
-
-##kolesa_html_download("https://kolesa.kz/a/show/169295605")
-
-#kolesa_html_reader_file("car.txt")
