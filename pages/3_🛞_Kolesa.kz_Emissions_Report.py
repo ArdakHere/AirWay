@@ -26,5 +26,5 @@ if st.button('Generate Report'):
 
 
 else:
-    st.text("Please enter a link before generating the realestate_report.")
+    st.text("Please enter a link before generating the car report.")
 

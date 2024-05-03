@@ -193,11 +193,39 @@ def generate_report_for_a_car(car_title: str, generation: str, engine_displaceme
     drawCertificate.text((100, 1380), recommendations_list[6], font=recommendationFont, fill=(0, 0, 0))
 
 
+
+    aq_index = 23
+
+    if aq_index >= 80: # dark green
+        color = [0, 196, 26]
+        R = 0
+        G = 196
+        B = 26
+    if aq_index >= 60 and aq_index < 80:  # yellow
+        color = [255, 242, 117]
+        R = 255
+        G = 242
+        B = 117
+    if aq_index < 30 and aq_index < 60:  # orange
+        color = [249, 177, 8]
+        R = 249
+        G = 177
+        B = 8
+    if aq_index >= 0 and aq_index <= 30: #brighter green
+        color = [183, 5, 5]
+        R = 183
+        G = 5
+        B = 5
+
+    drawCertificate.text((650, 1460), "23", font=titleFont, fill=(R,G,B))
+
+
     template.save(pathToSave)
 
     save_png_as_pdf(pathToSave, pathToPdf)
 
     return pathToSave
+
 
 def convert_png_to_pdf(png_path, pdf_path):
     # Create a canvas with the PDF path

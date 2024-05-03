@@ -26,10 +26,11 @@ st.sidebar.success("Select a demo above.")
 
 st.markdown(
     """
-    Select the realestate_report generator for Kolesa.kz/Krisha.kz on the LEFT and receive a comprehensive realestate_report on vehicle emissions or learn how 
+    Select the report generator for Kolesa.kz/Krisha.kz on the LEFT and receive a comprehensive on vehicle emissions or learn how 
     polluted the area is near the apartment/house
     
     ### Want to learn more about ecological situation in 🍎 Almaty?
+    - How is Air Quality measured? - [click](https://www.unep.org/news-and-stories/story/how-air-quality-measured)
     - How dangerous is Almaty's smog - [click](https://tengrinews.kz/kazakhstan_news/naskolko-opasen-almatinskiy-smog-kakie-bolezni-mojet-532004/)
     - How to protect yourself against polluted air? - [click](https://esquire.kz/ways-to-avoid-air-pollution/)
     - Dedicated blog about Almaty's ecology - [click](http://auagroup.kz/vozduh-v-almaty/)
