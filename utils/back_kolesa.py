@@ -1,23 +1,18 @@
 import re
-
 import requests
 from translate import Translator
-import os
 from openai import OpenAI
 
-# apikey ChatGPT sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP,   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
-# apikey GeminiAI AIzaSyAoDDOARP81gR1X8AGA82YKE8sXlzuVTJk
-
-client = OpenAI(api_key="sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP")
+client = OpenAI(
+    api_key="sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP")
 kolesa_data = ""
 
-def gpt_metrics_caller(data):
-    api_key = 'sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP'
 
-    endpoint = 'https://api.openai.com/v1/chat/completions'
-
-    prompt = ("Hey! I need you help with getting all the information related to emissions rating of the following car"
-              "and its eco-friendliness")
+def gpt_metrics_caller(data) -> tuple[dict, str]:
+    # api_key = 'sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP'
+    # endpoint = 'https://api.openai.com/v1/chat/completions'
+    # prompt = ("Hey! I need you help with getting all the information related to emissions rating of the following car"
+    #   "and its eco-friendliness")
 
     additional_data = {
         "car_title": data["car_title"],
@@ -41,7 +36,7 @@ def gpt_metrics_caller(data):
                            "CO2 is equal to"
                            "NOx is equal to"
                            "SO2 is equal to"
-                           "PM2.5 is equal to" 
+                           "PM2.5 is equal to"
                            "Recommendations:"
                            "1."
                            "2."
@@ -62,7 +57,6 @@ def gpt_metrics_caller(data):
 
     lines = report.split("\n")
 
-    # Extracting emissions values
     emissions_values = {}
     for line in lines:
         if line.startswith("CO2"):
@@ -78,7 +72,6 @@ def gpt_metrics_caller(data):
             key, value = line.split("is equal to")
             emissions_values[key.strip()] = value.strip()
 
-    # Extracting recommendations
     recommendations = ""
     recommendations_started = False
     for line in lines:
@@ -89,14 +82,13 @@ def gpt_metrics_caller(data):
 
     return emissions_values, recommendations
 
-def gpt_caller(data):
-    # Supply the car name and ask for emissions and other stuff
 
-    api_key = 'sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP'
-    endpoint = 'https://api.openai.com/v1/chat/completions'
+def gpt_caller(data) -> str:
 
-    prompt = ("Hey! I need you help with getting all the information related to emissions rating of the following car"
-              "and its eco-friendliness")
+    # api_key = 'sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP'
+    # endpoint = 'https://api.openai.com/v1/chat/completions'
+    # prompt = ("Hey! I need you help with getting all the information related to emissions rating of the following car"
+    #   "and its eco-friendliness")
 
     additional_data = {
         "car_title": data["car_title"],
@@ -105,7 +97,6 @@ def gpt_caller(data):
         "distance run (km)": data["distance run (km)"],
         "N-wheel drive": data["N-wheel drive"],
     }
-
 
     response = client.chat.completions.create(
         model="gpt-4",
@@ -131,17 +122,12 @@ def gpt_caller(data):
         max_tokens=300
     )
 
-
     report = response.choices[0].message.content
 
     return report
 
 
-##########################################################################################
-##########################################################################################
-##########################################################################################
-
-def kolesa_html_reader_file(filename):
+def kolesa_html_reader_file(filename: str) -> dict:
     car_dict = {
         "car_title": None,
         "generation": None,
@@ -156,12 +142,9 @@ def kolesa_html_reader_file(filename):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
     pattern = r'<dt class="value-title" title="(.*?)">.*?<dd class="value">(.*?)</dd>'
-
     matches = re.findall(pattern, html_content, re.DOTALL)
-
-    data = {}
+    # data = {}
 
     for match in matches:
         title = match[0]
@@ -179,45 +162,33 @@ def kolesa_html_reader_file(filename):
     name_match = re.search(name_pattern, html_content)
     if name_match:
         car_dict["car_title"] = name_match.group(1)
-
-        # Extract only the model name
         car_dict["car_title"] = car_dict["car_title"].split(' г.')[0]
 
-    translator = Translator(to_lang="en", from_lang="ru")  # Translate to English, auto-detect input language
+    translator = Translator(to_lang="en", from_lang="ru")
     i = 0
     for key, value in car_dict.items():
-        # Translate each key and value
         if i == 0:
             i = i + 1
         else:
-            if value != None:
+            if value is not None:
                 car_dict[key] = translator.translate(value)
 
     return car_dict
 
 
-##########################################################################################
-##########################################################################################
-##########################################################################################
-
-
-def kolesa_html_reader(car_data):
+def kolesa_html_reader(car_data) -> dict:
     car_dict = {
         "car_title": None,
         "generation": None,
         "engine_displacement": None,
-        "distance run (km)": None,  ## Mileage HAS to be specified
+        "distance run (km)": None,
         "N-wheel drive": None,
     }
 
-
     pattern = r'<dt class="value-title" title="(.*?)">.*?<dd class="value">(.*?)</dd>'
-
     matches = re.findall(pattern, car_data, re.DOTALL)
 
     data = {}
-
-    # Iterate over matches and store data in the dictionary
     for match in matches:
         title = match[0]
         value = match[1]
@@ -230,35 +201,28 @@ def kolesa_html_reader(car_data):
         if title == "Привод":
             car_dict["N-wheel drive"] = value.strip()
 
-
-
-    # Print extracted data for the specified fields
-    # print(data.values())
     name_pattern = r'"name":"(.*?)"'
     name_match = re.search(name_pattern, car_data)
     if name_match:
         car_dict["car_title"] = name_match.group(1)
-
-        # Extract only the model name
         car_dict["car_title"] = car_dict["car_title"].split(' г.')[0]
 
     for key, value in zip(list(car_dict.keys())[1:], data.values()):
         car_dict[key] = value
 
-
-    translator = Translator(to_lang="en", from_lang="ru")  # Translate to English, auto-detect input language
+    translator = Translator(to_lang="en", from_lang="ru") 
     i = 0
     for key, value in car_dict.items():
-        # Translate each key and value
         if i == 0:
             i = i + 1
         else:
-            if value != None:
+            if value is not None:
                 car_dict[key] = translator.translate(value)
 
     return car_dict
 
-def kolesa_html_download(url):
+
+def kolesa_html_download(url: str) -> str | None:
     try:
         response = requests.get(url)
         if response.status_code == 200:
@@ -268,5 +232,3 @@ def kolesa_html_download(url):
     except Exception as e:
         print(f"An error occurred: {e}")
         return None
-
-

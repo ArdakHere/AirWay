@@ -17,18 +17,16 @@ def set_background(color):
     """
     st.markdown(html, unsafe_allow_html=True)
 
+
 set_background("f0f0f0")
-
 st.write("# We Help Bring Awareness to Almaty's Air Quality 👋")
-
 st.sidebar.success("Select a demo above.")
-
 
 st.markdown(
     """
     Select the realestate_report generator for Kolesa.kz/Krisha.kz on the LEFT and receive a comprehensive realestate_report on vehicle emissions or learn how 
     polluted the area is near the apartment/house
-    
+
     ### Want to learn more about ecological situation in 🍎 Almaty?
     - How dangerous is Almaty's smog - [click](https://tengrinews.kz/kazakhstan_news/naskolko-opasen-almatinskiy-smog-kakie-bolezni-mojet-532004/)
     - How to protect yourself against polluted air? - [click](https://esquire.kz/ways-to-avoid-air-pollution/)
@@ -39,4 +37,3 @@ st.markdown(
     - Almaty Ecology Challenge Organization Team
 """
 )
-
