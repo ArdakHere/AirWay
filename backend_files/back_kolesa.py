@@ -34,21 +34,18 @@ def gpt_metrics_caller(data):
                 "role": "system",
                 "content": "Hey! I am going to provide a data on a car and I want you to provide the values of CO2, NOx, SO2 and PM2.5 "
                            "that the car emits when driving. You may not know the exact numbers, in this case provide approximate values "
-                           " Then, provide recommendations based on the values and the car related data that I will provide. Write each recommendation"
-                           "on a new line, and each recommendation should be shorter than 7 words, add new lines if the sentence is longer. "
-                           "Don't put periods at the ends of the sentences. "
-                           "..."
+                           " Then, provide recommendations below based on the values and the car related data that I will provide. Write each recommendation"
+                           "on a new line, and each recommendation should be shorter than 7 words, add new line characters if the sentence is longer. Limit to maximum of 10 recommendations"
+                           "Don't put periods at the ends of the sentences. START EACH RECOMMENDATION FROM THE NEWLINE"
                            "Provide the answer in the following format: "
                            "CO2 is equal to"
                            "NOx is equal to"
                            "SO2 is equal to"
-                           "PM2.5 is equal to"
-                           "..."
-                           "Recommendations: are"
+                           "PM2.5 is equal to" 
+                           "Recommendations:"
                            "1."
                            "2."
                            "3."
-                           "..."
             },
             {
                 "role": "user",
@@ -224,7 +221,14 @@ def kolesa_html_reader(car_data):
     for match in matches:
         title = match[0]
         value = match[1]
-        data[title] = value.strip()
+        if title == "Поколение":
+            car_dict["generation"] = value.strip()
+        if title == "Объем двигателя, л":
+            car_dict["engine_displacement"] = value.strip()
+        if title == "Пробег":
+            car_dict["distance run (km)"] = value.strip()
+        if title == "Привод":
+            car_dict["N-wheel drive"] = value.strip()
 
 
 
@@ -241,16 +245,16 @@ def kolesa_html_reader(car_data):
     for key, value in zip(list(car_dict.keys())[1:], data.values()):
         car_dict[key] = value
 
+
     translator = Translator(to_lang="en", from_lang="ru")  # Translate to English, auto-detect input language
     i = 0
-
-
     for key, value in car_dict.items():
         # Translate each key and value
         if i == 0:
             i = i + 1
         else:
-            car_dict[key] = translator.translate(value)
+            if value != None:
+                car_dict[key] = translator.translate(value)
 
     return car_dict
 

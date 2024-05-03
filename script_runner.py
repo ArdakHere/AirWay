@@ -26,7 +26,7 @@ st.sidebar.success("Select a demo above.")
 
 st.markdown(
     """
-    Select the report generator for Kolesa.kz/Krisha.kz on the LEFT and receive a comprehensive report on vehicle emissions or learn how 
+    Select the realestate_report generator for Kolesa.kz/Krisha.kz on the LEFT and receive a comprehensive realestate_report on vehicle emissions or learn how 
     polluted the area is near the apartment/house
     
     ### Want to learn more about ecological situation in 🍎 Almaty?

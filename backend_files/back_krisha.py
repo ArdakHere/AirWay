@@ -2,7 +2,7 @@ import requests
 import re
 import pandas as pd
 from math import radians, sin, cos, sqrt, atan2
-from plotter import *
+from backend_files.plotter import *
 from openai import OpenAI
 
 client = OpenAI(api_key="sk-proj-wfFWlYv6WmIRmwCRiGhPT3BlbkFJQ59sSlLRjpHSSYlwykOP")
@@ -43,7 +43,7 @@ def gpt_text_generator(data):
         messages=[
             {
                 "role": "system",
-                "content": "Hey! Based on the values of PM2.5, PM10 and CO in the air provide a report overview of the area of the real estate I am thinking of buying. Also add recommendations on living in the area with polluted air. Write each sentence"
+                "content": "Hey! Based on the values of PM2.5, PM10 and CO in the air provide a realestate_report overview of the area of the real estate I am thinking of buying. Also add recommendations on living in the area with polluted air. Write each sentence"
                            "on a new line, and each sentence should be shorter than 7 words, add new lines if the sentence is longer. Don't put periods at the ends of the sentences. "
                            "Explain each value and explain what they mean"
                            "Provide the answer in the following format: "
@@ -371,7 +371,7 @@ def MANUAL_report_handler(location):
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
 
-    data_processed.update({"report": gpt_text_generator(aq_metrics_for_gpt_report)})
+    data_processed.update({"realestate_report": gpt_text_generator(aq_metrics_for_gpt_report)})
 
     return generate_report_for_an_apartment(int(data_processed["aq_index_numeric"]),
                                             data_processed["aq_index_color"],
@@ -381,7 +381,7 @@ def MANUAL_report_handler(location):
                                             data_processed["pm25"],
                                             data_processed["pm10"],
                                             data_processed["co"],
-                                            data_processed["report"])
+                                            data_processed["realestate_report"])
 
 def report_handler(url):
     sensor_dataframe = sergek_reader()  # Read the SERGEK's dataset
@@ -415,7 +415,7 @@ def report_handler(url):
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
 
-    data_processed.update({"report": gpt_text_generator(aq_metrics_for_gpt_report)})
+    data_processed.update({"realestate_report": gpt_text_generator(aq_metrics_for_gpt_report)})
 
     return generate_report_for_an_apartment(int(data_processed["aq_index_numeric"]),
                                             data_processed["aq_index_color"],
@@ -425,11 +425,11 @@ def report_handler(url):
                                             data_processed["pm25"],
                                             data_processed["pm10"],
                                             data_processed["co"],
-                                            data_processed["report"])
+                                            data_processed["realestate_report"])
 
 def temp_func():
     sensor_dataframe = sergek_reader()   # Read the SERGEK's dataset
-    phys_data = krisha_html_reader("../AirWay/apartment.txt")    # Get coordinates and other physical data
+    phys_data = krisha_html_reader("../dummy_files_for_testing/apartment.txt")    # Get coordinates and other physical data
 
     sensor_locations_df = pd.DataFrame(sensor_dataframe)
     sensor_locations_df = sensor_locations_df.drop(sensor_locations_df.index[0])
@@ -458,8 +458,8 @@ def temp_func():
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
 
-    data_processed.update({"report": gpt_text_generator(aq_metrics_for_gpt_report)})
+    data_processed.update({"realestate_report": gpt_text_generator(aq_metrics_for_gpt_report)})
 
     return generate_report_for_an_apartment(int(data_processed["aq_index_numeric"]), data_processed["aq_index_color"], data_processed["color_pm25"],
                                             data_processed["color_pm10"], data_processed["color_co"], data_processed["pm25"],
-                                            data_processed["pm10"], data_processed["co"], data_processed["report"])
+                                            data_processed["pm10"], data_processed["co"], data_processed["realestate_report"])

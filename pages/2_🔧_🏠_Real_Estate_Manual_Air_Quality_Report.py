@@ -1,13 +1,12 @@
 import streamlit as st
 
-from back_krisha import *
-from plotter import *
+from backend_files.back_krisha import *
+from backend_files.plotter import *
 st.set_page_config(layout="centered", page_title="Real Estate Manual Emissions Report", page_icon="🔧🏠")
 
 st.write("")
 
 st.title('Real Estate  Ecology Report Generator (Manual entering)')
-
 
 realestate_data = {
     "location": None,
@@ -26,11 +25,9 @@ if st.button('Generate Report'):
         hour_history_path = get_pm25_hour_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png")
         st.title("The history of PM2.5 rating over the last 24 hours")
         st.image(hour_history_path, use_column_width=True)
-        append_image_to_pdf("./report/report.pdf",get_pm25_hour_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png"))
 
         week_history_path = get_pm25_week_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png")
         st.title("The history of PM2.5 rating over the last week")
         st.image(week_history_path, use_column_width=True)
-        append_image_to_pdf("./report/report.pdf",get_pm25_week_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png"))
 
 

@@ -1,6 +1,7 @@
 import streamlit as st
 
-from back_krisha import *
+from backend_files.back_krisha import *
+from backend_files.plotter import *
 
 st.set_page_config(layout="centered", page_title="Krisha.kz Air Quality Report", page_icon="🏠")
 
@@ -37,7 +38,6 @@ if st.button('Generate Report'):
         st.image(get_pm25_week_history(get_sensor_location_id(keyword) + ".png"), use_column_width=True)
 
 
-        #st.image(report_hanlder(keyword), caption='Airway', use_column_width=True)
     else:
         st.text("Please enter a link before generating")
 
