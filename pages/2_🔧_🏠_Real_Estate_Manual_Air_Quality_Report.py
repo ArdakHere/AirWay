@@ -1,6 +1,7 @@
 import streamlit as st
 
-from back_kolesa import kolesa_html_download, kolesa_html_reader, gpt_caller
+from back_krisha import *
+from plotter import *
 st.set_page_config(layout="centered", page_title="Real Estate Manual Emissions Report", page_icon="🔧🏠")
 
 st.write("")
@@ -15,14 +16,21 @@ realestate_data = {
 }
 
 realestate_data["location"] = st.text_input('Enter the location (latitude, longitude)')
-realestate_data["area"] = st.text_input('Enter the area of a real estate (sq. meters)')
-realestate_data["floor"] = st.text_input('Enter the floor')
+# realestate_data["area"] = st.text_input('Enter the area of a real estate (sq. meters)')
+# realestate_data["floor"] = st.text_input('Enter the floor')
 
 if st.button('Generate Report'):
 
-    report = realestate_data
+        st.image(MANUAL_report_handler(realestate_data["location"]), caption='Airway', use_column_width=True)
 
-    if report:
-        # Display HTML content with taller st.text
-        st.text_area(label="Report", value=report, height=500, max_chars=None, key=None)
+        hour_history_path = get_pm25_hour_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png")
+        st.title("The history of PM2.5 rating over the last 24 hours")
+        st.image(hour_history_path, use_column_width=True)
+        append_image_to_pdf("./report/report.pdf",get_pm25_hour_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png"))
+
+        week_history_path = get_pm25_week_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png")
+        st.title("The history of PM2.5 rating over the last week")
+        st.image(week_history_path, use_column_width=True)
+        append_image_to_pdf("./report/report.pdf",get_pm25_week_history(MANUAL_get_sensor_location_id(realestate_data["location"]) + ".png"))
+
 

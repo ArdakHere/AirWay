@@ -5,6 +5,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
+
 def set_background(color):
     hex_color = f'#{color}'
     html = f"""

@@ -4,6 +4,21 @@ from back_krisha import *
 
 st.set_page_config(layout="centered", page_title="Krisha.kz Air Quality Report", page_icon="🏠")
 
+def set_background(color):
+    hex_color = f'#{color}'
+    html = f"""
+        <style>
+            body {{
+                background-color: {hex_color};
+            }}
+        </style>
+    """
+    st.markdown(html, unsafe_allow_html=True)
+
+# Set background color
+set_background("ffffff")
+
+
 st.title('Krisha Air Quality Report Generator')
 
 keyword = st.text_input('Paste the link to apartment/house listed on Krisha.kz:', '')

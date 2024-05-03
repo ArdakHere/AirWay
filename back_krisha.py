@@ -44,17 +44,20 @@ def gpt_text_generator(data):
             {
                 "role": "system",
                 "content": "Hey! Based on the values of PM2.5, PM10 and CO in the air provide a report overview of the area of the real estate I am thinking of buying. Also add recommendations on living in the area with polluted air. Write each sentence"
-                           "on a new line, and each sentence should be shorter than 7 words. Don't put periods at the ends of the sentences."
+                           "on a new line, and each sentence should be shorter than 7 words, add new lines if the sentence is longer. Don't put periods at the ends of the sentences. "
                            "Explain each value and explain what they mean"
                            "Provide the answer in the following format: "
                            "-PM2.5 rating shows that ... "
-                           ""
+                           "..."
                            "-PM10 rating shows that ... "
-                           ""
+                           "..."
                            "-CO rating shows that ... "
-                           ""
+                           "..."
                            "Recommendations are:"
-                           ""
+                           "1."
+                           "2."
+                           "3."
+                           "..."
             },
             {
                 "role": "user",
@@ -295,6 +298,25 @@ def get_coordinates(data):
     else:
         print("Latitude and longitude data not found.")
 
+def MANUAL_get_sensor_location_id(location):
+    sensor_dataframe = sergek_reader()  # Read the SERGEK's dataset
+
+    sensor_locations_df = pd.DataFrame(sensor_dataframe)
+    sensor_locations_df = sensor_locations_df.drop(sensor_locations_df.index[0])
+
+    # Provided location
+    provided_location = location  # Example provided location
+    latitude, longitude = map(float, provided_location.split(','))
+
+    provided_location_dict = {
+        "Latitude": latitude,
+        "Longitude": longitude
+    }
+
+    closest_sensor = find_closest_sensor(sensor_locations_df, provided_location_dict)
+
+    closest_sensor_dict = closest_sensor.to_dict()
+    return closest_sensor_dict["location_id"]
 
 def get_sensor_location_id(url):
     sensor_dataframe = sergek_reader()  # Read the SERGEK's dataset
@@ -317,6 +339,49 @@ def get_sensor_location_id(url):
     closest_sensor_dict = closest_sensor.to_dict()
 
     return closest_sensor_dict["location_id"]
+
+def MANUAL_report_handler(location):
+    sensor_dataframe = sergek_reader()  # Read the SERGEK's dataset
+
+    sensor_locations_df = pd.DataFrame(sensor_dataframe)
+    sensor_locations_df = sensor_locations_df.drop(sensor_locations_df.index[0])
+
+    # Provided location
+    provided_location = location # Example provided location
+    latitude, longitude = map(float, provided_location.split(','))
+
+    provided_location_dict = {
+        "Latitude": latitude,
+        "Longitude": longitude
+    }
+
+    closest_sensor = find_closest_sensor(sensor_locations_df, provided_location_dict)
+
+    closest_sensor_dict = closest_sensor.to_dict()
+
+    data_processed = index_calculator(closest_sensor_dict)
+
+    aq_metrics_for_gpt_report = {
+        "pm25": closest_sensor_dict['pm25'],
+        "pm10": closest_sensor_dict['pm10'],
+        "co": closest_sensor_dict['co']
+    }
+
+    data_processed.update({'pm25': int(float(closest_sensor_dict['pm25']))})
+    data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
+    data_processed.update({'co': int(float(closest_sensor_dict['co']))})
+
+    data_processed.update({"report": gpt_text_generator(aq_metrics_for_gpt_report)})
+
+    return generate_report_for_an_apartment(int(data_processed["aq_index_numeric"]),
+                                            data_processed["aq_index_color"],
+                                            data_processed["color_pm25"],
+                                            data_processed["color_pm10"],
+                                            data_processed["color_co"],
+                                            data_processed["pm25"],
+                                            data_processed["pm10"],
+                                            data_processed["co"],
+                                            data_processed["report"])
 
 def report_handler(url):
     sensor_dataframe = sergek_reader()  # Read the SERGEK's dataset
@@ -357,7 +422,9 @@ def report_handler(url):
                                             data_processed["color_pm25"],
                                             data_processed["color_pm10"],
                                             data_processed["color_co"],
-                                            data_processed["pm25"], data_processed["pm10"], data_processed["co"],
+                                            data_processed["pm25"],
+                                            data_processed["pm10"],
+                                            data_processed["co"],
                                             data_processed["report"])
 
 def temp_func():
@@ -367,9 +434,15 @@ def temp_func():
     sensor_locations_df = pd.DataFrame(sensor_dataframe)
     sensor_locations_df = sensor_locations_df.drop(sensor_locations_df.index[0])
     # Provided location
-    provided_location = {'Latitude': 43.144244, 'Longitude': 76.5533}  # Example provided location
+    provided_location = phys_data["location"]  # Example provided location
+    latitude, longitude = map(float, provided_location.split(','))
 
-    closest_sensor = find_closest_sensor(sensor_locations_df, provided_location)
+    provided_location_dict = {
+        "Latitude": latitude,
+        "Longitude": longitude
+    }
+
+    closest_sensor = find_closest_sensor(sensor_locations_df, provided_location_dict)
 
     closest_sensor_dict = closest_sensor.to_dict()
 
@@ -390,5 +463,3 @@ def temp_func():
     return generate_report_for_an_apartment(int(data_processed["aq_index_numeric"]), data_processed["aq_index_color"], data_processed["color_pm25"],
                                             data_processed["color_pm10"], data_processed["color_co"], data_processed["pm25"],
                                             data_processed["pm10"], data_processed["co"], data_processed["report"])
-
-temp_func()

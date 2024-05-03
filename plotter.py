@@ -1,5 +1,6 @@
 from PIL import Image, ImageFont, ImageDraw
-from reportlab.lib.pagesizes import letter
+from reportlab.lib.pagesizes import *
+from PyPDF2 import PdfFileReader, PdfFileWriter
 from reportlab.pdfgen import canvas
 from datetime import datetime
 import os
@@ -7,8 +8,6 @@ import os
 APARTMENT_IMAGE_PATH = "./pages/apartmentReportTemplate.png"
 CAR_IMAGE_PATH = "./pages/carReportTemplate.png"
 PICTOGRAMS_PATH = "./pictograms/"
-IMAGE_PATH = "./pages/reportTemplate.png"
-
 
 def get_pm25_hour_history(filename: str):
     # Path to the src folder
@@ -44,9 +43,11 @@ def get_pm25_week_history(filename: str):
         return None
 
 
-def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color: list, pm10Color: list, coColor: list, pm25: int, pm10: int, co: int, text: str) -> str:
+def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color: list,
+                                     pm10Color: list, coColor: list, pm25: int,
+                                     pm10: int, co: int, text: str) -> str:
     try:
-        template = Image.open(IMAGE_PATH)
+        template = Image.open(APARTMENT_IMAGE_PATH)
         drawCertificate = ImageDraw.Draw(template)    
     except Exception:
         pass
@@ -80,7 +81,7 @@ def generate_report_for_an_apartment(aqIndex: int, aqIndexColor: list, pm25Color
     metricFont = ImageFont.truetype('./font/FreeMono.ttf', 90)
     aqFont = ImageFont.truetype('./font/FreeMono.ttf', 110)
     labelFont = ImageFont.truetype('./font/FreeMono.ttf', 50)
-    textFont = ImageFont.truetype('./font/FreeMonoBold.ttf', 45)
+    textFont = ImageFont.truetype('./font/FreeMonoBold.ttf', 40)
 
     # INDEX
     drawCertificate.text((470, 320), "Air Quality Index", font=labelFont, fill=(0, 0, 0))
@@ -141,6 +142,29 @@ def save_png_as_pdf(path_to_png, path_to_save):
     pdf_path = path_to_save + ".pdf"  # Append '.pdf' to the file path
     convert_png_to_pdf(path_to_png, pdf_path)
     return pdf_path
+
+def append_image_to_pdf(pdf_path: str, image_path: str) -> None:
+    # Open the PDF in 'append' mode
+    existing_pdf = PdfFileReader(open(pdf_path, "rb"))
+    output = PdfFileWriter()
+
+    # Add existing pages to the output
+    for page in existing_pdf.pages:
+        output.addPage(page)
+
+    # Create a new page
+    new_page = output.addBlankPage(width=letter[0], height=letter[1])
+
+    # Draw the image onto the new page
+    with Image.open(image_path) as img:
+        img_width, img_height = img.size
+        page = output.getPage(output.getNumPages() - 1)
+        page.mergeScaledTranslatedPage(new_page, scale=img_height / letter[1], tx=0, ty=0)
+        page.mergePage(new_page)
+
+    # Write the output PDF to file
+    with open(pdf_path, "wb") as f:
+        output.write(f)
 
 def generate_report_for_a_car(aqIndex: int, aqIndexColor: list, pm25: int, pm10: int, co: int, text: str) -> str:
     pass
