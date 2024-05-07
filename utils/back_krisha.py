@@ -7,7 +7,7 @@ from utils.plotter import generate_report_for_an_apartment
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="sk-proj-SoNrlJ4IGnXvzLS6Ndr7T3BlbkFJzBRhcNYKX3HmpbARiCGp")
+    api_key="")
 
 
 def read_sergek_data() -> DataFrame:

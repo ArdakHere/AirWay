@@ -5,7 +5,7 @@ from openai import OpenAI
 
 
 client = OpenAI(
-    api_key="sk-proj-SoNrlJ4IGnXvzLS6Ndr7T3BlbkFJzBRhcNYKX3HmpbARiCGp")
+    api_key="")
 
 
 def request_metrics_and_recommendations(
