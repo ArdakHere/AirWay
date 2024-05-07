@@ -1,6 +1,6 @@
 import streamlit as st
-from backend_files.back_krisha import get_sensor_location_id_from_manual_input, create_apartment_report_from_manual_input
-from backend_files.plotter import get_pm25_hour_history, get_pm25_week_history
+from utils.back_krisha import get_sensor_location_id_from_manual_input, create_apartment_report_from_manual_input
+from utils.plotter import get_pm25_hour_history, get_pm25_week_history
 
 st.set_page_config(
     layout="centered",

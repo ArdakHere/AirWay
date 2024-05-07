@@ -2,14 +2,14 @@ from PIL import Image, ImageFont, ImageDraw
 from reportlab.lib.pagesizes import letter
 from PyPDF2 import PdfFileReader, PdfFileWriter
 from reportlab.pdfgen import canvas
-from backend_files.back_kolesa import request_metrics_and_recommendations
+from utils.back_kolesa import request_metrics_and_recommendations
 import os
 import re
 
 
-APARTMENT_IMAGE_PATH = "./apartmentReportTemplate.png"
-CAR_IMAGE_PATH = "./carReportTemplate.png"
-PICTOGRAMS_PATH = "./img/icons_for_report/"
+APARTMENT_IMAGE_PATH = "./assets/img/template_for_reports/apartmentReportTemplate.png"
+CAR_IMAGE_PATH = "./assets/img/template_for_reports/carReportTemplate.png"
+PICTOGRAMS_PATH = "./assets/img/icons_for_report/"
 
 
 def get_pm25_hour_history(sensor_name: str) -> str | None:
@@ -17,7 +17,7 @@ def get_pm25_hour_history(sensor_name: str) -> str | None:
 
     Args:
         filename (str): The name of the file to find."""
-    folder = "/Users/daniyarkakimbekov/Workspaces/AirWay/pm25_history_graphs/hour_pm25_history/"
+    folder = "./assets/pm25_history_graphs/hour_pm25_history/"
     file_path = folder + sensor_name
     if os.path.exists(file_path):
         print(f"Found file: {file_path}")
@@ -35,7 +35,7 @@ def get_pm25_week_history(filename: str) -> str | None:
 
     Returns:
         str | None: The path to the file if it exists, otherwise None."""
-    folder = "/Users/daniyarkakimbekov/Workspaces/AirWay/pm25_history_graphs/week_pm25_history/"
+    folder = "./assets/pm25_history_graphs/week_pm25_history/"
     file_path = folder + filename
     if os.path.exists(file_path):
         print(f"Found file: {file_path}")
@@ -72,11 +72,16 @@ def generate_report_for_an_apartment(
 
     Returns:
         str: The path to the saved report."""
-    try:
-        template = Image.open(APARTMENT_IMAGE_PATH)
-        drawCertificate = ImageDraw.Draw(template)
-    except Exception:
-        pass
+
+    # try:
+    #     template = Image.open(APARTMENT_IMAGE_PATH)
+    #     drawCertificate = ImageDraw.Draw(template)
+    # except Exception:
+    #     pass
+
+    template = Image.open(APARTMENT_IMAGE_PATH)
+    drawCertificate = ImageDraw.Draw(template)
+
 
     R, G, B = aqIndexColor[0], aqIndexColor[1], aqIndexColor[2]
     Rpm25, Gpm25, Bpm25 = pm25Color[0], pm25Color[1], pm25Color[2]
@@ -85,23 +90,55 @@ def generate_report_for_an_apartment(
     pm25Pic = Image.open(PICTOGRAMS_PATH + "pm25.png")
     pm10Pic = Image.open(PICTOGRAMS_PATH + "pm10.png")
     coPic = Image.open(PICTOGRAMS_PATH + "co.png")
-    pathToSave = "/Users/daniyarkakimbekov/Workspaces/AirWay/reports/realestate_report/realestate_report.png"
-    pathToPdf = "/Users/daniyarkakimbekov/Workspaces/AirWay/reports/realestate_report/realestate_report_pdf"
-    metricFont = ImageFont.truetype('./font/FreeMono.ttf', 90)
-    aqFont = ImageFont.truetype('./font/FreeMono.ttf', 110)
-    labelFont = ImageFont.truetype('./font/FreeMono.ttf', 50)
-    textFont = ImageFont.truetype('./font/FreeMonoBold.ttf', 40)
+    pathToSave = "./assets/reports/realestate_report/realestate_report.png"
+    pathToPdf = "./assets/reports/realestate_report/realestate_report_pdf"
+    metricFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 90)
+    aqFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 110)
+    labelFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 50)
+    textFont = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 40)
 
     drawCertificate.text(
-        (470, 320),
-        "Air Quality Index",
+        (370, 320),
+        "Насколько грязный воздух?",
         font=labelFont,
-        fill=(0, 0, 0))
-    drawCertificate.text(
-        (650, 380),
-        str(aqIndex),
-        font=aqFont,
-        fill=(R, G, B))
+        fill=(0, 0,0))
+
+    if aqIndex <= 40:
+        emoji_image = Image.open("./assets/img/icons_for_report/emojis/star_eyes_emoji.png")
+        emoji_width = int(emoji_image.width * 0.2)
+        emoji_height = int(emoji_image.height * 0.2)
+        emoji_image.thumbnail((emoji_width, emoji_height))
+        template.paste(emoji_image, (650, 380))
+    if 50 >= aqIndex > 40:
+        emoji_image = Image.open("./assets/img/icons_for_report/emojis/slighty_smiling_emoji.png")
+        emoji_width = int(emoji_image.width * 0.2)
+        emoji_height = int(emoji_image.height * 0.2)
+        emoji_image.thumbnail((emoji_width, emoji_height))
+        template.paste(emoji_image, (650, 380))
+    if 70 >= aqIndex > 50:
+        emoji_image = Image.open("./assets/img/icons_for_report/emojis/neutral_emoji.png")
+        emoji_width = int(emoji_image.width * 0.2)
+        emoji_height = int(emoji_image.height * 0.2)
+        emoji_image.thumbnail((emoji_width, emoji_height))
+        template.paste(emoji_image, (650, 380))
+    if 80 >= aqIndex > 70:
+        emoji_image = Image.open("./assets/img/icons_for_report/emojis/unhappy_emoji.png")
+        emoji_width = int(emoji_image.width * 0.2)
+        emoji_height = int(emoji_image.height * 0.2)
+        emoji_image.thumbnail((emoji_width, emoji_height))
+        template.paste(emoji_image, (650, 380))
+    if 90 > aqIndex > 80:
+        emoji_image = Image.open("./assets/img/icons_for_report/emojis/confounded_emoji.png")
+        emoji_width = int(emoji_image.width * 0.2)
+        emoji_height = int(emoji_image.height * 0.2)
+        emoji_image.thumbnail((emoji_width, emoji_height))
+        template.paste(emoji_image, (650, 380))
+    if aqIndex >= 90:
+        emoji_image = Image.open("./assets/img/icons_for_report/emojis/mask_emoji.png")
+        emoji_width = int(emoji_image.width * 0.2)
+        emoji_height = int(emoji_image.height * 0.2)
+        emoji_image.thumbnail((emoji_width, emoji_height))
+        template.paste(emoji_image, (650, 380))
 
     if pm25 > 99:
         template.paste(pm25Pic, (580, 670))
@@ -141,6 +178,46 @@ def generate_report_for_an_apartment(
             (1050, 540), "CO", font=labelFont, fill=(0, 0, 0))
         drawCertificate.text(
             (1030, 600), str(co), font=metricFont, fill=(Rco, Gco, Bco))
+
+    # The code below is for displaying metrics in numbers
+    # if pm25 > 99:
+    #     template.paste(pm25Pic, (580, 670))
+    #     drawCertificate.text(
+    #         (650, 540), "PM2.5", font=labelFont, fill=(0, 0, 0))
+    #     drawCertificate.text(
+    #         (650, 600), str(pm25), font=metricFont, fill=(Rpm25, Gpm25, Bpm25))
+    # else:
+    #     template.paste(pm25Pic, (590, 670))
+    #     drawCertificate.text(
+    #         (650, 540), "PM2.5", font=labelFont, fill=(0, 0, 0))
+    #     drawCertificate.text(
+    #         (660, 600), str(pm25), font=metricFont, fill=(Rpm25, Gpm25, Bpm25))
+    #
+    # if pm10 > 99:
+    #     template.paste(pm10Pic, (240, 670))
+    #     drawCertificate.text(
+    #         (295, 540), "PM10", font=labelFont, fill=(0, 0, 0))
+    #     drawCertificate.text(
+    #         (270, 600), str(pm10), font=metricFont, fill=(Rpm10, Gpm10, Bpm10))
+    # else:
+    #     template.paste(pm10Pic, (255, 670))
+    #     drawCertificate.text(
+    #         (295, 540), "PM10", font=labelFont, fill=(0, 0, 0))
+    #     drawCertificate.text(
+    #         (300, 600), str(pm10), font=metricFont, fill=(Rpm10, Gpm10, Bpm10))
+    #
+    # if co > 99:
+    #     template.paste(coPic, (950, 670))
+    #     drawCertificate.text(
+    #         (1050, 540), "CO", font=labelFont, fill=(0, 0, 0))
+    #     drawCertificate.text(
+    #         (1050, 600), str(co), font=metricFont, fill=(Rco, Gco, Bco))
+    # else:
+    #     template.paste(coPic, (950, 670))
+    #     drawCertificate.text(
+    #         (1050, 540), "CO", font=labelFont, fill=(0, 0, 0))
+    #     drawCertificate.text(
+    #         (1030, 600), str(co), font=metricFont, fill=(Rco, Gco, Bco))
 
     drawCertificate.text(
         (50, 940), text, font=textFont, fill=(0, 0, 0), spacing=10)
@@ -187,8 +264,8 @@ def generate_report_for_a_car(
     recommendations_list = [
         item.strip() for item in recommendations_list if item.strip()]
 
-    pathToSave = "/Users/daniyarkakimbekov/Workspaces/AirWay/reports/car_report/car_report.png"
-    pathToPdf = "/Users/daniyarkakimbekov/Workspaces/AirWay/reports/car_report/car_report"
+    pathToSave = "./reports/car_report/car_report.png"
+    pathToPdf = "./reports/car_report/car_report"
 
     titleFont = ImageFont.truetype('./font/FreeMonoBold.ttf', 65)
     textFont = ImageFont.truetype('./font/FreeMono.ttf', 40)
@@ -230,14 +307,12 @@ def generate_report_for_a_car(
     drawCertificate.text(
         (850, 890), f"{pm25_val}", font=textFont, fill=(0, 0, 0))
 
-    drawCertificate.text((70, 1000), "Recommendation:", font=second_lvl_heading, fill=(0, 0, 0))
-    drawCertificate.text((100, 1080), recommendations_list[0], font=recommendationFont, fill=(0, 0, 0))
-    drawCertificate.text((100, 1130), recommendations_list[1], font=recommendationFont, fill=(0, 0, 0))
-    drawCertificate.text((100, 1180), recommendations_list[2], font=recommendationFont, fill=(0, 0, 0))
-    drawCertificate.text((100, 1230), recommendations_list[3], font=recommendationFont, fill=(0, 0, 0))
-    drawCertificate.text((100, 1280), recommendations_list[4], font=recommendationFont, fill=(0, 0, 0))
-    drawCertificate.text((100, 1330), recommendations_list[5], font=recommendationFont, fill=(0, 0, 0))
-    drawCertificate.text((100, 1380), recommendations_list[6], font=recommendationFont, fill=(0, 0, 0))
+    drawCertificate.text((70, 1000), "Recommendations:", font=second_lvl_heading, fill=(0, 0, 0))
+
+    y_val = 1080
+    for recommendation in recommendations_list:
+        drawCertificate.text((100, y_val), recommendation, font=recommendationFont, fill=(0, 0, 0))
+        y_val+=50
 
     aq_index = 23
     if aq_index >= 80:

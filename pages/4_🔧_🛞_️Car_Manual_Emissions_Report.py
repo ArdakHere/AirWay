@@ -1,5 +1,5 @@
 import streamlit as st
-from backend_files.plotter import generate_report_for_a_car
+from utils.plotter import generate_report_for_a_car
 
 
 st.set_page_config(

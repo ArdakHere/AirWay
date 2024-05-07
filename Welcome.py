@@ -1,23 +1,10 @@
 import streamlit as st
+from utils.change_background_color import *
 
 st.set_page_config(
     page_title="Hello",
     page_icon="👋",
 )
-
-
-# do something
-def set_background(color):
-    hex_color = f'#{color}'
-    html = f"""
-        <style>
-            body {{
-                background-color: {hex_color};
-            }}
-        </style>
-    """
-    st.markdown(html, unsafe_allow_html=True)
-
 
 set_background("f0f0f0")
 

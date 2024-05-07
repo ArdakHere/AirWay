@@ -3,11 +3,11 @@ import re
 import pandas as pd
 from pandas import DataFrame
 from math import radians, sin, cos, sqrt, atan2
-from backend_files.plotter import generate_report_for_an_apartment
+from utils.plotter import generate_report_for_an_apartment
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="")
+    api_key="sk-proj-SoNrlJ4IGnXvzLS6Ndr7T3BlbkFJzBRhcNYKX3HmpbARiCGp")
 
 
 def read_sergek_data() -> DataFrame:
@@ -35,7 +35,7 @@ def read_sergek_data() -> DataFrame:
     return result_df
 
 
-def generate_apartment_report(air_quality_data: dict) -> str:
+def generate_gpt_apartment_report(air_quality_data: dict) -> str:
     """
     Generate a realestate_report for an apartment based on the air quality data
 
@@ -449,7 +449,7 @@ def create_apartment_report_from_manual_input(apartment_location: str) -> str:
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
     data_processed.update(
-        {"realestate_report": generate_apartment_report(
+        {"realestate_report": generate_gpt_apartment_report(
             aq_metrics_for_gpt_report)})
 
     path_to_report = generate_report_for_an_apartment(
@@ -492,7 +492,7 @@ def create_apartment_report_from_link(url: str) -> str:
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
     data_processed.update(
-        {"realestate_report": generate_apartment_report(
+        {"realestate_report": generate_gpt_apartment_report(
             aq_metrics_for_gpt_report)})
     path_to_report = generate_report_for_an_apartment(
         int(data_processed["aq_index_numeric"]),
@@ -511,7 +511,7 @@ def create_apartment_report_from_link(url: str) -> str:
 def test_local_file_generation():
     sensor_dataframe = read_sergek_data()
     phys_data = read_local_apartment_page(
-        "../dummy_files_for_testing/apartment.txt")
+        "../assets/html_testing_files/apartment.txt")
     sensor_locations_df = pd.DataFrame(sensor_dataframe)
     sensor_locations_df = sensor_locations_df.drop(
         sensor_locations_df.index[0])
@@ -536,7 +536,7 @@ def test_local_file_generation():
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
     data_processed.update(
-        {"realestate_report": generate_apartment_report(
+        {"realestate_report": generate_gpt_apartment_report(
             aq_metrics_for_gpt_report)})
     path_to_report = generate_report_for_an_apartment(
         int(data_processed["aq_index_numeric"]),

@@ -1,5 +1,7 @@
 import streamlit as st
-from backend_files.plotter import download_car_webpage, read_remote_kolesa_page, generate_report_for_a_car
+
+from utils.back_kolesa import download_car_webpage, read_remote_kolesa_page
+from utils.plotter import *
 
 
 st.set_page_config(

@@ -1,6 +1,6 @@
 import streamlit as st
-from backend_files.back_krisha import create_apartment_report_from_link, get_sensor_location_id
-from backend_files.plotter import get_pm25_hour_history, get_pm25_week_history
+from utils.back_krisha import create_apartment_report_from_link, get_sensor_location_id
+from utils.plotter import get_pm25_hour_history, get_pm25_week_history
 
 
 st.set_page_config(
@@ -30,13 +30,13 @@ if st.button('Generate Report'):
     if keyword:
         st.image(
             create_apartment_report_from_link(keyword), caption='Airway', use_column_width=True)
-        st.title("The history of PM2.5 rating over the last 24 hours")
+        st.title("Степень загрязненности воздуха вредными частицами за последние 24 часа")
         st.image(
             get_pm25_hour_history(
                 get_sensor_location_id(keyword) + ".png"),
             use_column_width=True)
 
-        st.title("The history of PM2.5 rating over the last week")
+        st.title("Степень загрязненности воздуха вредными частицами за последнюю неделю")
         st.image(
             get_pm25_week_history(
                 get_sensor_location_id(keyword) + ".png"),
