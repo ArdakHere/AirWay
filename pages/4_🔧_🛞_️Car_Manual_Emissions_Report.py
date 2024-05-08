@@ -1,5 +1,4 @@
 import streamlit as st
-from utils.plotter import generate_report_for_a_car
 
 
 st.set_page_config(
@@ -27,6 +26,10 @@ car_data["N-wheel drive"] = st.text_input(
     'Enter the wheel drive configuration')
 
 if st.button('Generate Report'):
+
+    # solution to circular import, if removed the error will reappear
+    from utils.plotter import generate_report_for_a_car
+
     st.image(
         generate_report_for_a_car(
             car_data["car_title"],

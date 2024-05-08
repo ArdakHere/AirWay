@@ -2,7 +2,8 @@ from PIL import Image, ImageFont, ImageDraw
 from reportlab.lib.pagesizes import letter
 from PyPDF2 import PdfFileReader, PdfFileWriter
 from reportlab.pdfgen import canvas
-from utils.back_kolesa import request_metrics_and_recommendations
+from utils.back_krisha import *
+from utils.back_kolesa import *
 import os
 import re
 
@@ -46,6 +47,8 @@ def get_pm25_week_history(filename: str) -> str | None:
 
 
 def generate_report_for_an_apartment(
+    latitude: float,
+    longitude: float,
     aqIndex: int,
     aqIndexColor: list,
     pm25Color: list,
@@ -78,7 +81,8 @@ def generate_report_for_an_apartment(
     #     drawCertificate = ImageDraw.Draw(template)
     # except Exception:
     #     pass
-
+    print(latitude)
+    print(longitude)
     template = Image.open(APARTMENT_IMAGE_PATH)
     drawCertificate = ImageDraw.Draw(template)
 
@@ -94,92 +98,66 @@ def generate_report_for_an_apartment(
     pathToPdf = "./assets/reports/realestate_report/realestate_report_pdf"
     metricFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 90)
     aqFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 110)
-    labelFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 50)
+    labelFont = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 60)
     textFont = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 40)
+    indexWarnFont = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 95)
 
     drawCertificate.text(
-        (370, 320),
-        "Насколько грязный воздух?",
+        (270, 280),
+        "How polluted the air is?",
         font=labelFont,
-        fill=(0, 0,0))
+        fill=(0, 0, 0))
+    drawCertificate.text((125, 550), "Concentration of harmful particles", font=labelFont, fill=(0, 0, 0))
 
     if aqIndex <= 40:
         emoji_image = Image.open("./assets/img/icons_for_report/emojis/star_eyes_emoji.png")
         emoji_width = int(emoji_image.width * 0.2)
         emoji_height = int(emoji_image.height * 0.2)
         emoji_image.thumbnail((emoji_width, emoji_height))
-        template.paste(emoji_image, (650, 380))
+        template.paste(emoji_image, (630, 370))
+        drawCertificate.text((450, 630), "Minimal, air is clean", font=indexWarnFont, fill=(Rpm25, Gpm25, Bpm25))
     if 50 >= aqIndex > 40:
         emoji_image = Image.open("./assets/img/icons_for_report/emojis/slighty_smiling_emoji.png")
         emoji_width = int(emoji_image.width * 0.2)
         emoji_height = int(emoji_image.height * 0.2)
         emoji_image.thumbnail((emoji_width, emoji_height))
-        template.paste(emoji_image, (650, 380))
+        template.paste(emoji_image, (630, 370))
+
+        drawCertificate.text((450, 630), "Doesn't pose risk", font=indexWarnFont, fill=(Rpm25, Gpm25, Bpm25))
     if 70 >= aqIndex > 50:
         emoji_image = Image.open("./assets/img/icons_for_report/emojis/neutral_emoji.png")
         emoji_width = int(emoji_image.width * 0.2)
         emoji_height = int(emoji_image.height * 0.2)
         emoji_image.thumbnail((emoji_width, emoji_height))
-        template.paste(emoji_image, (650, 380))
+        template.paste(emoji_image, (630, 370))
+
+        drawCertificate.text((480, 630), "Average", font=indexWarnFont, fill=(Rpm25, Gpm25, Bpm25))
     if 80 >= aqIndex > 70:
         emoji_image = Image.open("./assets/img/icons_for_report/emojis/unhappy_emoji.png")
         emoji_width = int(emoji_image.width * 0.2)
         emoji_height = int(emoji_image.height * 0.2)
         emoji_image.thumbnail((emoji_width, emoji_height))
-        template.paste(emoji_image, (650, 380))
+        template.paste(emoji_image, (630, 370))
+
+        drawCertificate.text((480, 630), "Elevated", font=indexWarnFont, fill=(Rpm25, Gpm25, Bpm25))
     if 90 > aqIndex > 80:
         emoji_image = Image.open("./assets/img/icons_for_report/emojis/confounded_emoji.png")
         emoji_width = int(emoji_image.width * 0.2)
         emoji_height = int(emoji_image.height * 0.2)
         emoji_image.thumbnail((emoji_width, emoji_height))
-        template.paste(emoji_image, (650, 380))
+        template.paste(emoji_image, (630, 370))
+
+        drawCertificate.text((480, 630), "High", font=indexWarnFont, fill=(255, 0, 0))
     if aqIndex >= 90:
         emoji_image = Image.open("./assets/img/icons_for_report/emojis/mask_emoji.png")
         emoji_width = int(emoji_image.width * 0.2)
         emoji_height = int(emoji_image.height * 0.2)
         emoji_image.thumbnail((emoji_width, emoji_height))
-        template.paste(emoji_image, (650, 380))
+        template.paste(emoji_image, (630, 370))
 
-    if pm25 > 99:
-        template.paste(pm25Pic, (580, 670))
-        drawCertificate.text(
-            (650, 540), "PM2.5", font=labelFont, fill=(0, 0, 0))
-        drawCertificate.text(
-            (650, 600), str(pm25), font=metricFont, fill=(Rpm25, Gpm25, Bpm25))
-    else:
-        template.paste(pm25Pic, (590, 670))
-        drawCertificate.text(
-            (650, 540), "PM2.5", font=labelFont, fill=(0, 0, 0))
-        drawCertificate.text(
-            (660, 600), str(pm25), font=metricFont, fill=(Rpm25, Gpm25, Bpm25))
+        drawCertificate.text((460, 630), "Dangerous", font=indexWarnFont, fill=(154, 14, 14))
 
-    if pm10 > 99:
-        template.paste(pm10Pic, (240, 670))
-        drawCertificate.text(
-            (295, 540), "PM10", font=labelFont, fill=(0, 0, 0))
-        drawCertificate.text(
-            (270, 600), str(pm10), font=metricFont, fill=(Rpm10, Gpm10, Bpm10))
-    else:
-        template.paste(pm10Pic, (255, 670))
-        drawCertificate.text(
-            (295, 540), "PM10", font=labelFont, fill=(0, 0, 0))
-        drawCertificate.text(
-            (300, 600), str(pm10), font=metricFont, fill=(Rpm10, Gpm10, Bpm10))
-
-    if co > 99:
-        template.paste(coPic, (950, 670))
-        drawCertificate.text(
-            (1050, 540), "CO", font=labelFont, fill=(0, 0, 0))
-        drawCertificate.text(
-            (1050, 600), str(co), font=metricFont, fill=(Rco, Gco, Bco))
-    else:
-        template.paste(coPic, (950, 670))
-        drawCertificate.text(
-            (1050, 540), "CO", font=labelFont, fill=(0, 0, 0))
-        drawCertificate.text(
-            (1030, 600), str(co), font=metricFont, fill=(Rco, Gco, Bco))
-
-    # The code below is for displaying metrics in numbers
+    # The commented code below is for displaying metrics in numbers
     # if pm25 > 99:
     #     template.paste(pm25Pic, (580, 670))
     #     drawCertificate.text(
@@ -220,7 +198,45 @@ def generate_report_for_an_apartment(
     #         (1030, 600), str(co), font=metricFont, fill=(Rco, Gco, Bco))
 
     drawCertificate.text(
-        (50, 940), text, font=textFont, fill=(0, 0, 0), spacing=10)
+        (50, 800), text, font=textFont, fill=(0, 0, 0), spacing=10)
+
+    # solution to circular import, if removed the error will reappear
+    from utils.back_krisha import make_2gis_request_and_return_object_count
+
+    park_num = make_2gis_request_and_return_object_count(
+        "",
+        latitude,
+        longitude,
+        500,
+        "парк")
+
+    charger_num = make_2gis_request_and_return_object_count(
+         "",
+         latitude,
+         longitude,
+         500,
+         "зарядка автомобилей")
+
+    park_icon = Image.open("./assets/img/icons_for_report/park_icon.png")
+
+    park_width = int(park_icon.width * 2)
+    park_height = int(park_icon.height * 2)
+    park_icon.thumbnail((park_width, park_height))
+
+    template.paste(park_icon, (620, 1180))
+    drawCertificate.text((740, 1175), f"{park_num}", font=aqFont, fill=(0, 153, 0))
+
+    drawCertificate.text(
+        (320, 1315), "Parks within the 5 min walk", font=textFont, fill=(0, 0, 0))
+
+    charger_icon = Image.open("./assets/img/icons_for_report/charger_icon.png")
+
+    template.paste(charger_icon, (620, 1380))
+    drawCertificate.text((740, 1375), f"{charger_num}", font=aqFont, fill=(0, 153, 0))
+
+    drawCertificate.text(
+        (210, 1515), "Electric Vehicle chargers close by (300m)", font=textFont, fill=(0, 0, 0))
+
     template.save(pathToSave)
     save_png_as_pdf(pathToSave, pathToPdf)
 
@@ -264,14 +280,16 @@ def generate_report_for_a_car(
     recommendations_list = [
         item.strip() for item in recommendations_list if item.strip()]
 
-    pathToSave = "./reports/car_report/car_report.png"
-    pathToPdf = "./reports/car_report/car_report"
+    pathToSave = "./assets/reports/car_report/car_report.png"
+    pathToPdf = "./assets/reports/car_report/car_report"
 
-    titleFont = ImageFont.truetype('./font/FreeMonoBold.ttf', 65)
-    textFont = ImageFont.truetype('./font/FreeMono.ttf', 40)
-    recommendationFont = ImageFont.truetype('./font/FreeMono.ttf', 40)
+    indexWarnFont = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 60)
+    titleFont = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 65)
+    textFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 40)
+    recommendationFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 40)
 
-    second_lvl_heading = ImageFont.truetype('./font/FreeMonoBold.ttf', 55)
+    second_lvl_heading = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 55)
+
     drawCertificate.text(
         (230, 70), "Car Air Pollution Report", font=titleFont, fill=(0, 0, 0))
     drawCertificate.text(
@@ -292,20 +310,61 @@ def generate_report_for_a_car(
         (100, 440), f"N-wheel drive: {Nwheel_drive}",
         font=textFont, fill=(0, 0, 0))
     drawCertificate.text(
-        (70, 510), "Produced chemicals:",
+        (70, 510), "Gas mileage/The car pollutes \n the air to this level:",
         font=second_lvl_heading, fill=(0, 0, 0))
+
+    gas_mileage_icon = Image.open(PICTOGRAMS_PATH + "gas_mileage_icon.png")
+    ecology_index_icon = Image.open(PICTOGRAMS_PATH + "ecology_index_icon.png")
+
+    gas_mileage = emissions_values["Gas expenditure"]
     co2_val = emissions_values["CO2"]
-    drawCertificate.text(
-        (290, 720), f"{co2_val}", font=textFont, fill=(0, 0, 0))
-    nox_val = emissions_values["NOx"]
-    drawCertificate.text(
-        (280, 890), f"{nox_val}", font=textFont, fill=(0, 0, 0))
-    so2_val = emissions_values["SO2"]
-    drawCertificate.text(
-        (850, 720), f"{so2_val}", font=textFont, fill=(0, 0, 0))
-    pm25_val = emissions_values["PM2.5"]
-    drawCertificate.text(
-        (850, 890), f"{pm25_val}", font=textFont, fill=(0, 0, 0))
+
+    gas_mileage_number = extract_gas_mileage(gas_mileage)
+    co2_val_number = extract_co2_emissions(co2_val)
+    ecofriendly_index_car = ((gas_mileage_number*10) + co2_val_number)/1000
+    print(gas_mileage_number)
+    if ecofriendly_index_car >= 0.5:
+        R, G, B = 131, 0, 0
+
+        drawCertificate.text(
+            (160, 820), f"{gas_mileage_number} L/100km", font=indexWarnFont, fill=(R, G, B))
+        template.paste(gas_mileage_icon, (270, 695))
+        drawCertificate.text(
+            (860, 820), "Dangerous", font=indexWarnFont, fill=(R, G, B))
+        template.paste(ecology_index_icon, (935, 695))
+
+    if ecofriendly_index_car >= 0.3 and ecofriendly_index_car < 0.5:
+        R, G, B = 255, 225, 20
+
+        drawCertificate.text(
+            (160, 820), f"{gas_mileage_number} L/100km", font=indexWarnFont, fill=(R, G, B))
+        template.paste(gas_mileage_icon, (270, 695))
+
+        drawCertificate.text(
+            (870, 820), "High", font=indexWarnFont, fill=(R, G, B))
+        template.paste(ecology_index_icon, (935, 695))
+    if ecofriendly_index_car >= 0.2 and ecofriendly_index_car < 0.3:
+        R, G, B = 198, 239, 86
+        drawCertificate.text(
+            (160, 820), f"{gas_mileage_number} L/100km", font=indexWarnFont, fill=(R, G, B))
+        template.paste(gas_mileage_icon, (270, 695))
+
+        drawCertificate.text(
+            (710, 820), "Moderate pollution", font=indexWarnFont, fill=(R, G, B))
+        template.paste(ecology_index_icon, (935, 695))
+    if ecofriendly_index_car >= 0 and ecofriendly_index_car < 0.2:
+        R, G, B = 27, 152, 3
+        drawCertificate.text(
+            (160, 820), f"{gas_mileage_number} L/100km", font=indexWarnFont, fill=(R, G, B))
+        template.paste(gas_mileage_icon, (270, 695))
+
+        drawCertificate.text(
+            (730, 820), "Low pollution", font=indexWarnFont, fill=(R, G, B))
+        template.paste(ecology_index_icon, (935, 695))
+
+    
+
+
 
     drawCertificate.text((70, 1000), "Recommendations:", font=second_lvl_heading, fill=(0, 0, 0))
 
@@ -314,17 +373,6 @@ def generate_report_for_a_car(
         drawCertificate.text((100, y_val), recommendation, font=recommendationFont, fill=(0, 0, 0))
         y_val+=50
 
-    aq_index = 23
-    if aq_index >= 80:
-        R, G, B = 0, 196, 26
-    if aq_index >= 60 and aq_index < 80:
-        R, G, B = 255, 242, 117
-    if aq_index < 30 and aq_index < 60:
-        R, G, B = 249, 177, 8
-    if aq_index >= 0 and aq_index <= 30:
-        R, G, B = 183, 5, 5
-
-    drawCertificate.text((650, 1460), "23", font=titleFont, fill=(R, G, B))
     template.save(pathToSave)
     save_png_as_pdf(pathToSave, pathToPdf)
 

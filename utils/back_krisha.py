@@ -1,9 +1,10 @@
+import json
 import requests
 import re
 import pandas as pd
+from utils.plotter import generate_report_for_an_apartment
 from pandas import DataFrame
 from math import radians, sin, cos, sqrt, atan2
-from utils.plotter import generate_report_for_an_apartment
 from openai import OpenAI
 
 client = OpenAI(
@@ -35,6 +36,55 @@ def read_sergek_data() -> DataFrame:
     return result_df
 
 
+def make_2gis_request_and_return_object_count(
+        apiKey: str,
+        lat: float,
+        lon: float,
+        radius: int,
+        object_to_search: str
+) -> int:
+    """
+        Return the number of objects found within the radius by 2GIS API
+    Args:
+        apiKey (str): 2GIS API key
+        lat (float): latitude of the location
+        lon (float): longitude of the location
+        radius (int): radius of the search
+        object_to_search (str): object to search
+    Returns:
+        int: total count of objects found within the radius"""
+
+    location = f"{lon}%2C{lat}"
+
+    params = {
+        "key": apiKey,
+        "point": location,
+        "radius": radius,
+        "q": object_to_search
+    }
+
+    base_url = f"https://catalog.api.2gis.com/3.0/items?q={object_to_search}&point={location}&radius={radius}&key={apiKey}"
+
+    try:
+        response = requests.get(base_url)
+        if response.status_code == 200:
+            response_data = json.loads(response.text)
+            if "Results not found" in response.text:
+                total = 0
+            else:
+                total = response_data['result']['total']
+
+            return total
+        else:
+            print(f"Request failed with status code: {response.status_code}")
+            return None
+    except requests.RequestException as e:
+        print(f"Request error: {e}")
+        return None
+
+
+
+
 def generate_gpt_apartment_report(air_quality_data: dict) -> str:
     """
     Generate a realestate_report for an apartment based on the air quality data
@@ -52,14 +102,7 @@ def generate_gpt_apartment_report(air_quality_data: dict) -> str:
                 "role": "system",
                 "content": "Hey! Based on the values of PM2.5, PM10 and CO in the air provide a realestate_report overview of the area of the real estate I am thinking of buying. Also add recommendations on living in the area with polluted air. Write each sentence"
                            "on a new line, and each sentence should be shorter than 7 words, add new lines if the sentence is longer. Don't put periods at the ends of the sentences. "
-                           "Explain each value and explain what they mean"
                            "Provide the answer in the following format: "
-                           "-PM2.5 rating shows that ... "
-                           "..."
-                           "-PM10 rating shows that ... "
-                           "..."
-                           "-CO rating shows that ... "
-                           "..."
                            "Recommendations are:"
                            "1."
                            "2."
@@ -425,6 +468,7 @@ def create_apartment_report_from_manual_input(apartment_location: str) -> str:
 
     Returns:
         str: path to the generated realestate_report"""
+
     sensor_dataframe = read_sergek_data()
     sensor_locations_df = pd.DataFrame(sensor_dataframe)
     sensor_locations_df = sensor_locations_df.drop(
@@ -438,13 +482,16 @@ def create_apartment_report_from_manual_input(apartment_location: str) -> str:
     closest_sensor = find_closest_sensor(
         sensor_locations_df, provided_location_dict)
     closest_sensor_dict = closest_sensor.to_dict()
+
     data_processed = calculate_index(closest_sensor_dict)
     aq_metrics_for_gpt_report = {
         "pm25": closest_sensor_dict['pm25'],
         "pm10": closest_sensor_dict['pm10'],
         "co": closest_sensor_dict['co']
     }
-
+    print(closest_sensor_dict)
+    data_processed.update({'latitude': closest_sensor_dict['Latitude']})
+    data_processed.update({'longitude': closest_sensor_dict['Longtitude']})
     data_processed.update({'pm25': int(float(closest_sensor_dict['pm25']))})
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
@@ -453,6 +500,8 @@ def create_apartment_report_from_manual_input(apartment_location: str) -> str:
             aq_metrics_for_gpt_report)})
 
     path_to_report = generate_report_for_an_apartment(
+        data_processed['latitude'],
+        data_processed['longitude'],
         int(data_processed["aq_index_numeric"]),
         data_processed["aq_index_color"],
         data_processed["color_pm25"],
@@ -482,12 +531,15 @@ def create_apartment_report_from_link(url: str) -> str:
     closest_sensor = find_closest_sensor(
         sensor_locations_df, provided_location_dict)
     closest_sensor_dict = closest_sensor.to_dict()
+
     data_processed = calculate_index(closest_sensor_dict)
     aq_metrics_for_gpt_report = {
         "pm25": closest_sensor_dict['pm25'],
         "pm10": closest_sensor_dict['pm10'],
         "co": closest_sensor_dict['co']
     }
+    data_processed.update({'latitude': closest_sensor_dict['Latitude']})
+    data_processed.update({'longitude': closest_sensor_dict['Longtitude']})
     data_processed.update({'pm25': int(float(closest_sensor_dict['pm25']))})
     data_processed.update({'pm10': int(float(closest_sensor_dict['pm10']))})
     data_processed.update({'co': int(float(closest_sensor_dict['co']))})
@@ -495,6 +547,8 @@ def create_apartment_report_from_link(url: str) -> str:
         {"realestate_report": generate_gpt_apartment_report(
             aq_metrics_for_gpt_report)})
     path_to_report = generate_report_for_an_apartment(
+        data_processed['latitude'],
+        data_processed['longitude'],
         int(data_processed["aq_index_numeric"]),
         data_processed["aq_index_color"],
         data_processed["color_pm25"],
@@ -550,3 +604,12 @@ def test_local_file_generation():
         data_processed["realestate_report"])
 
     return path_to_report
+
+
+
+# def make_2gis_request(
+#         apiKey: str,
+#         lat: str,
+#         lon: str,
+#         radius: int,
+#         object_to_search: str

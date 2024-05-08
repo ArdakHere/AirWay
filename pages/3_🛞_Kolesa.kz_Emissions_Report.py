@@ -1,7 +1,6 @@
 import streamlit as st
 
 from utils.back_kolesa import download_car_webpage, read_remote_kolesa_page
-from utils.plotter import *
 
 
 st.set_page_config(
@@ -17,6 +16,9 @@ if st.button('Generate Report'):
     if kolesa_link:
         link_html_code = download_car_webpage(kolesa_link)
         car_data = read_remote_kolesa_page(link_html_code)
+
+        # solution to circular import, if removed the error will reappear
+        from utils.plotter import generate_report_for_a_car
 
         st.image(
             generate_report_for_a_car(

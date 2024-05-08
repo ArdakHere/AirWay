@@ -1,5 +1,5 @@
 import streamlit as st
-from utils.back_krisha import get_sensor_location_id_from_manual_input, create_apartment_report_from_manual_input
+from utils.back_krisha import create_apartment_report_from_manual_input, get_sensor_location_id_from_manual_input
 from utils.plotter import get_pm25_hour_history, get_pm25_week_history
 
 st.set_page_config(
@@ -28,10 +28,10 @@ if st.button('Generate Report'):
 
     hour_history_path = get_pm25_hour_history(
         get_sensor_location_id_from_manual_input(realestate_data["location"]) + ".png")
-    st.title("The history of PM2.5 rating over the last 24 hours")
+    st.title("How polluted the air was in the last 24 hours (Strong pollution if > 90)")
     st.image(hour_history_path, use_column_width=True)
 
     week_history_path = get_pm25_week_history(
         get_sensor_location_id_from_manual_input(realestate_data["location"]) + ".png")
-    st.title("The history of PM2.5 rating over the last week")
+    st.title("How polluted the air was this week (Strong pollution if > 90)")
     st.image(week_history_path, use_column_width=True)

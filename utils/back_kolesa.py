@@ -8,6 +8,30 @@ client = OpenAI(
     api_key="")
 
 
+def extract_co2_emissions(co2_emissions_str):
+    # Use regular expression to extract the numeric value
+    match = re.search(r'\b(\d+(\.\d+)?)(?:-(\d+(\.\d+)?))?\s*g', co2_emissions_str, re.IGNORECASE)
+    if match:
+        # Extract the matched numeric values
+        emissions_start = float(match.group(1))
+        print(emissions_start)
+        return int(emissions_start)
+    else:
+        return None  # Return None if no match is found
+
+def extract_gas_mileage(gas_mileage_str):
+    # Use regular expression to extract the numeric value
+    match = re.search(r'\b(\d+(\.\d+)?)(?:\s*-\s*(\d+(\.\d+)?))?\s*[lLgG]', gas_mileage_str, re.IGNORECASE)
+
+    if match:
+        # Extract the matched numeric values
+        mileage_start = float(match.group(1))
+        print(mileage_start)
+        return int(mileage_start)
+    else:
+        return None  # Return None if no match is found
+
+
 def request_metrics_and_recommendations(
     car_metric_data: dict
 ) -> tuple[dict, str]:
@@ -35,9 +59,10 @@ def request_metrics_and_recommendations(
                 "content": "Hey! I am going to provide a data on a car and I want you to provide the values of CO2, NOx, SO2 and PM2.5 "
                            "that the car emits when driving. You may not know the exact numbers, in this case provide approximate values "
                            " Then, provide recommendations below based on the values and the car related data that I will provide. Write each recommendation"
-                           "on a new line, and each recommendation should be shorter than 7 words, add new line characters if the sentence is longer. Limit to maximum of 10 recommendations"
+                           "on a new line, and each recommendation should be shorter than 7 words, add new line characters if the sentence is longer. Limit to maximum of 5 recommendations"
                            "Don't put periods at the ends of the sentences. START EACH RECOMMENDATION FROM THE NEWLINE"
-                           "Provide the answer in the following format: "
+                           "Provide the answer in the following format and do not use words such as approximately, just give the number: "
+                           "Gas expenditure is equal to"
                            "CO2 is equal to"
                            "NOx is equal to"
                            "SO2 is equal to"
@@ -71,6 +96,9 @@ def request_metrics_and_recommendations(
             key, value = line.split("is equal to")
             emissions_values[key.strip()] = value.strip()
         elif line.startswith("PM2.5"):
+            key, value = line.split("is equal to")
+            emissions_values[key.strip()] = value.strip()
+        elif line.startswith("Gas expenditure"):
             key, value = line.split("is equal to")
             emissions_values[key.strip()] = value.strip()
 
