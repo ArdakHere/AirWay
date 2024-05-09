@@ -31,6 +31,29 @@ if st.button('Generate Report'):
 
         apartment_info = download_apartment_webpage(keyword)
 
+        st.markdown("""
+                    <style>
+                        .button-container {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                        }
+                        .stButton {
+                            scale: 1.2;
+                            margin-left: 320px;
+                            justify-content: center;
+                        }
+                    </style>
+                """, unsafe_allow_html=True)
+
+        # Display buttons in a row
+        st.markdown('<div class="button-container">', unsafe_allow_html=True)
+        if st.button("Contact Seller"):
+            pass  # Perform action when button is clicked
+        if st.button("Calculate Credit"):
+            pass  # Perform action when button is clicked
+        st.markdown('</div>', unsafe_allow_html=True)
+
         st.image(
             create_apartment_report_from_link(keyword), caption='Airway', use_column_width=True)
         st.title("How polluted the air was in the last 24 hours (Strong pollution for > 90)")

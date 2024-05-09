@@ -2,7 +2,7 @@ import json
 import requests
 import re
 import pandas as pd
-from utils.plotter import generate_report_for_an_apartment
+from utils.plotter import *
 from pandas import DataFrame
 from math import radians, sin, cos, sqrt, atan2
 from openai import OpenAI
@@ -22,7 +22,7 @@ def read_sergek_data() -> DataFrame:
     Returns:
         DataFrame: DataFrame with the data from SERGEK's dataset
     """
-    df = pd.read_parquet("./sergek_dataset/data_sensor.parquet")
+    df = pd.read_parquet("./assets/datasets/data_sensor.parquet")
     filtered_df = df[
         ['location_id', 'Latitude', 'Longtitude', 'pm25', 'pm10', 'co']]
     averages = filtered_df.groupby(

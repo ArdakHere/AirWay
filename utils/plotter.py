@@ -253,7 +253,8 @@ def generate_report_for_a_car(
     generation: str,
     engine_displacement: str,
     distance_run: str,
-    Nwheel_drive: str
+    Nwheel_drive: str,
+    price: int
 ) -> str:
     """
     Generate a report for a car with the given metrics.
@@ -278,9 +279,9 @@ def generate_report_for_a_car(
         "engine_displacement": engine_displacement,
         "distance run (km)": distance_run,
         "N-wheel drive": Nwheel_drive,
+        "price": price,
     }
-    emissions_values, recommendations = request_metrics_and_recommendations(
-        car_data)
+    emissions_values, recommendations = request_metrics_and_recommendations(car_data)
     recommendations_list = re.split(r'\d+\.', recommendations)
     recommendations_list = [
         item.strip() for item in recommendations_list if item.strip()]
@@ -294,6 +295,7 @@ def generate_report_for_a_car(
     recommendationFont = ImageFont.truetype('./assets/font/FreeMono.ttf', 40)
 
     second_lvl_heading = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 55)
+    third_lvl_heading = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 45)
 
     drawCertificate.text(
         (230, 70), "Car Air Pollution Report", font=titleFont, fill=(0, 0, 0))
@@ -312,7 +314,7 @@ def generate_report_for_a_car(
         (100, 390), f"Distance run: {distance_run}",
         font=textFont, fill=(0, 0, 0))
     drawCertificate.text(
-        (100, 440), f"N-wheel drive: {Nwheel_drive}",
+        (100, 440), f"Price: {price} KZT",
         font=textFont, fill=(0, 0, 0))
     drawCertificate.text(
         (70, 510), "Gas mileage/The car pollutes \n the air to this level:",
@@ -367,16 +369,16 @@ def generate_report_for_a_car(
             (730, 820), "Low pollution", font=indexWarnFont, fill=(R, G, B))
         template.paste(ecology_index_icon, (935, 695))
 
-    
+    drawCertificate.text((70, 940), "Recommendations:", font=second_lvl_heading, fill=(0, 0, 0))
 
-
-
-    drawCertificate.text((70, 1000), "Recommendations:", font=second_lvl_heading, fill=(0, 0, 0))
-
-    y_val = 1080
+    y_val = 1020
     for recommendation in recommendations_list:
         drawCertificate.text((100, y_val), recommendation, font=recommendationFont, fill=(0, 0, 0))
         y_val+=50
+
+    drawCertificate.text((70, 1280), "Consider these cars for a similar price:", font=second_lvl_heading, fill=(0, 0, 0))
+
+    drawCertificate.text((100, 1360), get_car_recommendations(price), font=textFont, fill=(0, 0, 0))
 
     template.save(pathToSave)
     save_png_as_pdf(pathToSave, pathToPdf)

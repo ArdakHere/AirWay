@@ -1,3 +1,4 @@
+import csv
 import re
 import requests
 from translate import Translator
@@ -10,6 +11,95 @@ def define_openAI_client_with_key_kolesa(key: str):
 
     global client  # Use the global keyword to modify the global variable inside the function
     client = OpenAI(api_key=key)
+
+
+def get_car_recommendations(price: int) -> str:
+    non_ev_recommendations = []
+    ev_recommendations = []
+
+    # Open the CSV file
+    with open('./assets/datasets/car_dataset.csv', newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+
+        # Iterate through each row in the CSV file
+        for row in reader:
+            car_price = int(row['price (KZT)'])
+            car_brand = row['brand']
+            car_model = row['model']
+            car_type = row['type']
+
+            # Check if the car price is within the desired range
+            if int(price) - 1200000 <= car_price <= int(price) + 1200000:
+                # Check if it's an electric or non-electric car
+                if car_type == 'non-ev':
+                    if len(non_ev_recommendations) < 2:
+                        non_ev_recommendations.append(f"{car_brand} {car_model} - {car_price:,} KZT")
+                elif car_type == 'ev':
+                    if len(ev_recommendations) < 2:
+                        ev_recommendations.append(f"{car_brand} {car_model} - {car_price:,} KZT")
+
+            # Break if we have found at least 2 recommendations for both non-ev and ev cars
+            if len(non_ev_recommendations) >= 2 and len(ev_recommendations) >= 2:
+                break
+
+    # Format the recommendations
+    non_ev_recommendations_str = "\n".join(non_ev_recommendations)
+    ev_recommendations_str = "\n".join(ev_recommendations)
+
+    # Combine non-ev and ev recommendations into a single string
+    recommendations_str = f"Non-Electric Cars:\n{non_ev_recommendations_str}\n\nElectric Cars:\n{ev_recommendations_str}"
+
+    return recommendations_str
+
+def read_remote_kolesa_page(html_car_data: str) -> dict:
+    car_info = {
+        "car_title": None,
+        "generation": None,
+        "engine_displacement": None,
+        "distance run (km)": None,
+        "N-wheel drive": None,
+        "price": None,
+    }
+
+    # Extracting unitPrice from JavaScript object in HTML data
+    match = re.search(r"\"unitPrice\":\s*(\d+\.?\d*)", html_car_data)
+
+    if match:
+        car_info["price"] = match.group(1)
+        print("Unit Price:", car_info["price"])
+    else:
+        print("No unit price found in the HTML.")
+
+
+    # Extracting other car information from HTML
+    pattern = r'<dt class="value-title" title="(.*?)">.*?<dd class="value">(.*?)</dd>'
+    matches = re.findall(pattern, html_car_data, re.DOTALL)
+    for match in matches:
+        title = match[0]
+        value = match[1]
+        if title == "Поколение":
+            car_info["generation"] = value.strip()
+        elif title == "Объем двигателя, л":
+            car_info["engine_displacement"] = value.strip()
+        elif title == "Пробег":
+            car_info["distance run (km)"] = value.strip()
+        elif title == "Привод":
+            car_info["N-wheel drive"] = value.strip()
+
+    name_pattern = r'"name":"(.*?)"'
+    name_match = re.search(name_pattern, html_car_data)
+    if name_match:
+        car_info["car_title"] = name_match.group(1)
+        car_info["car_title"] = car_info["car_title"].split(' г.')[0]
+
+    # Translating car information
+    translator = Translator(to_lang="en", from_lang="ru")
+    for key, value in car_info.items():
+        if value is not None:
+            car_info[key] = translator.translate(value)
+
+    return car_info
+
 
 def extract_co2_emissions(co2_emissions_str):
     # Use regular expression to extract the numeric value
@@ -164,50 +254,6 @@ def read_local_kolesa_page(filepath: str) -> dict:
     translator = Translator(
         to_lang="en",
         from_lang="ru")
-    i = 0
-    for key, value in car_info.items():
-        if i == 0:
-            i = i + 1
-        else:
-            if value is not None:
-                car_info[key] = translator.translate(value)
-    return car_info
-
-
-def read_remote_kolesa_page(html_car_data: str) -> dict:
-    car_info = {
-        "car_title": None,
-        "generation": None,
-        "engine_displacement": None,
-        "distance run (km)": None,
-        "N-wheel drive": None,
-    }
-
-    pattern = r'<dt class="value-title" title="(.*?)">.*?<dd class="value">(.*?)</dd>'
-    matches = re.findall(pattern, html_car_data, re.DOTALL)
-    data = {}
-    for match in matches:
-        title = match[0]
-        value = match[1]
-        if title == "Поколение":
-            car_info["generation"] = value.strip()
-        if title == "Объем двигателя, л":
-            car_info["engine_displacement"] = value.strip()
-        if title == "Пробег":
-            car_info["distance run (km)"] = value.strip()
-        if title == "Привод":
-            car_info["N-wheel drive"] = value.strip()
-
-    name_pattern = r'"name":"(.*?)"'
-    name_match = re.search(name_pattern, html_car_data)
-    if name_match:
-        car_info["car_title"] = name_match.group(1)
-        car_info["car_title"] = car_info["car_title"].split(' г.')[0]
-
-    for key, value in zip(list(car_info.keys())[1:], data.values()):
-        car_info[key] = value
-
-    translator = Translator(to_lang="en", from_lang="ru")
     i = 0
     for key, value in car_info.items():
         if i == 0:
