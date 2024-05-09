@@ -7,9 +7,13 @@ from pandas import DataFrame
 from math import radians, sin, cos, sqrt, atan2
 from openai import OpenAI
 
-client = OpenAI(
-    api_key="")
 
+client = None  # Define client outside the function
+
+def define_openAI_client_with_key_krisha(key: str):
+
+    global client  # Use the global keyword to modify the global variable inside the function
+    client = OpenAI(api_key=key)
 
 def read_sergek_data() -> DataFrame:
     """
@@ -55,7 +59,6 @@ def make_2gis_request_and_return_object_count(
         int: total count of objects found within the radius"""
 
     location = f"{lon}%2C{lat}"
-
     params = {
         "key": apiKey,
         "point": location,
@@ -64,17 +67,20 @@ def make_2gis_request_and_return_object_count(
     }
 
     base_url = f"https://catalog.api.2gis.com/3.0/items?q={object_to_search}&point={location}&radius={radius}&key={apiKey}"
-
     try:
         response = requests.get(base_url)
         if response.status_code == 200:
             response_data = json.loads(response.text)
-            if "Results not found" in response.text:
+            # TODO: Fix script compeletely ignoring the following if statements for errors
+            if response_data["meta"]["code"] == 404:
                 total = 0
+            if response_data["meta"]["code"] == 403:
+                print("Authorization error")
+                return None
             else:
-                total = response_data['result']['total']
-
-            return total
+                print(response_data)
+                total = response_data["result"]["total"]
+                return total
         else:
             print(f"Request failed with status code: {response.status_code}")
             return None

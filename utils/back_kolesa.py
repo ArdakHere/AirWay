@@ -4,9 +4,12 @@ from translate import Translator
 from openai import OpenAI
 
 
-client = OpenAI(
-    api_key="")
+client = None  # Define client outside the function
 
+def define_openAI_client_with_key_kolesa(key: str):
+
+    global client  # Use the global keyword to modify the global variable inside the function
+    client = OpenAI(api_key=key)
 
 def extract_co2_emissions(co2_emissions_str):
     # Use regular expression to extract the numeric value

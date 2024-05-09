@@ -12,6 +12,11 @@ APARTMENT_IMAGE_PATH = "./assets/img/template_for_reports/apartmentReportTemplat
 CAR_IMAGE_PATH = "./assets/img/template_for_reports/carReportTemplate.png"
 PICTOGRAMS_PATH = "./assets/img/icons_for_report/"
 
+two_gis_key = ""
+
+def define_two_gis_key(key: str):
+    global two_gis_key
+    two_gis_key = key
 
 def get_pm25_hour_history(sensor_name: str) -> str | None:
     """Get the path to the hourly PM2.5 history graph with the given filename.
@@ -202,20 +207,20 @@ def generate_report_for_an_apartment(
 
     # solution to circular import, if removed the error will reappear
     from utils.back_krisha import make_2gis_request_and_return_object_count
-
+    print(two_gis_key)
     park_num = make_2gis_request_and_return_object_count(
-        "",
+        two_gis_key,
         latitude,
         longitude,
-        500,
+        1000,
         "парк")
 
     charger_num = make_2gis_request_and_return_object_count(
-         "",
+         two_gis_key,
          latitude,
          longitude,
          500,
-         "зарядка автомобилей")
+         "станция зарядки электромобилей")
 
     park_icon = Image.open("./assets/img/icons_for_report/park_icon.png")
 

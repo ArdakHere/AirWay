@@ -1,3 +1,16 @@
+from utils.back_krisha import define_openAI_client_with_key_krisha
+from utils.plotter import define_two_gis_key
+from utils.back_kolesa import define_openAI_client_with_key_kolesa
+
+from utils.plotter import *
+
+openai_api_key = input("Enter your ChatGPT API key: ")
+gis_api_key = input("Enter your 2GIS API key: ")
+
+define_openAI_client_with_key_krisha(openai_api_key)
+define_openAI_client_with_key_kolesa(openai_api_key)
+define_two_gis_key(gis_api_key)
+
 import streamlit as st
 from utils.change_background_color import *
 
