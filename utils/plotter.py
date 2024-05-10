@@ -386,6 +386,7 @@ def generate_report_for_a_car(
     return pathToSave
 
 
+
 def convert_png_to_pdf(png_path: str, pdf_path: str) -> None:
     """
     Convert a PNG image to a PDF file.

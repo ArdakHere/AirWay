@@ -69,20 +69,24 @@ def make_2gis_request_and_return_object_count(
     base_url = f"https://catalog.api.2gis.com/3.0/items?q={object_to_search}&point={location}&radius={radius}&key={apiKey}"
     try:
         response = requests.get(base_url)
+        print(response.status_code)
         if response.status_code == 200:
             response_data = json.loads(response.text)
-            # TODO: Fix script compeletely ignoring the following if statements for errors
-            if response_data["meta"]["code"] == 404:
-                total = 0
-            if response_data["meta"]["code"] == 403:
-                print("Authorization error")
-                return None
+            if "result" in response_data:
+                if response_data["result"]["total"]:
+                    total = response_data["result"]["total"]
+                    return total
+                else:
+                    total = len(response_data["result"])
+                    return total
             else:
-                print(response_data)
-                total = response_data["result"]["total"]
+                total = 0
                 return total
-        else:
-            print(f"Request failed with status code: {response.status_code}")
+        elif response.status_code == 404:
+            total = 0
+            return total
+        elif response.status_code == 403:
+            print("Authorization error")
             return None
     except requests.RequestException as e:
         print(f"Request error: {e}")

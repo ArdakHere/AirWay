@@ -101,6 +101,7 @@ def read_remote_kolesa_page(html_car_data: str) -> dict:
     return car_info
 
 
+
 def extract_co2_emissions(co2_emissions_str):
     # Use regular expression to extract the numeric value
     match = re.search(r'\b(\d+(\.\d+)?)(?:-(\d+(\.\d+)?))?\s*g', co2_emissions_str, re.IGNORECASE)
