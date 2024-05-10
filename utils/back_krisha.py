@@ -112,7 +112,7 @@ def generate_gpt_apartment_report(air_quality_data: dict) -> str:
                 "role": "system",
                 "content": "Hey! Based on the values of PM2.5, PM10 and CO in the air provide a realestate_report overview of the area of the real estate I am thinking of buying. Also add recommendations on living in the area with polluted air. Write each sentence"
                            "on a new line, and each sentence should be shorter than 7 words, add new lines if the sentence is longer. Don't put periods at the ends of the sentences. "
-                           "Provide the answer in the following format: "
+                           "Provide the answer in the following format and respond in russian language: "
                            "Recommendations are:"
                            "1."
                            "2."

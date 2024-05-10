@@ -28,7 +28,10 @@ def get_car_recommendations(price: int) -> str:
             car_model = row['model']
             car_type = row['type']
 
-            # Check if the car price is within the desired range
+            if ',' in price:
+                price = price.replace(',', '')
+
+
             if int(price) - 1200000 <= car_price <= int(price) + 1200000:
                 # Check if it's an electric or non-electric car
                 if car_type == 'non-ev':
@@ -154,7 +157,7 @@ def request_metrics_and_recommendations(
                            "that the car emits when driving. You may not know the exact numbers, in this case provide approximate values "
                            " Then, provide recommendations below based on the values and the car related data that I will provide. Write each recommendation"
                            "on a new line, and each recommendation should be shorter than 7 words, add new line characters if the sentence is longer. Limit to maximum of 5 recommendations"
-                           "Don't put periods at the ends of the sentences. START EACH RECOMMENDATION FROM THE NEWLINE"
+                           "Don't put periods at the ends of the sentences. START EACH RECOMMENDATION FROM THE NEWLINE. "
                            "Provide the answer in the following format and do not use words such as approximately, just give the number: "
                            "Gas expenditure is equal to"
                            "CO2 is equal to"
@@ -201,7 +204,7 @@ def request_metrics_and_recommendations(
     for line in lines:
         if recommendations_started:
             recommendations += line.strip()
-        if line == "Recommendations:":
+        if line == "Рекоммендации:":
             recommendations_started = True
 
     return emissions_values, recommendations

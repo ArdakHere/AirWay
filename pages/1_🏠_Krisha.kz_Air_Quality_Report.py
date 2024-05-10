@@ -21,9 +21,9 @@ def set_background(color):
 
 
 set_background("ffffff")
-st.title('Krisha Air Quality Report Generator')
+st.title('Генерация Эко Репорта для Квартиры (Krisha.kz)')
 keyword = st.text_input(
-    'Paste the link to apartment/house listed on Krisha.kz:', '')
+    'Введите ссылку на объявление Krisha.kz:', '')
 
 
 if st.button('Generate Report'):
@@ -48,24 +48,24 @@ if st.button('Generate Report'):
 
         # Display buttons in a row
         st.markdown('<div class="button-container">', unsafe_allow_html=True)
-        if st.button("Contact Seller"):
+        if st.button("Связаться с продавцом"):
             pass  # Perform action when button is clicked
-        if st.button("Calculate Credit"):
+        if st.button("Посчитать кредит"):
             pass  # Perform action when button is clicked
         st.markdown('</div>', unsafe_allow_html=True)
 
         st.image(
             create_apartment_report_from_link(keyword), caption='Airway', use_column_width=True)
-        st.title("How polluted the air was in the last 24 hours (Strong pollution for > 90)")
+        st.title("На сколько загрязнен воздух за последние 24 часа (Сильное загрязнение > 90)")
         st.image(
             get_pm25_hour_history(
                 get_sensor_location_id(keyword) + ".png"),
             use_column_width=True)
 
-        st.title("How polluted the air was this week (Strong pollution for > 90)")
+        st.title("На сколько загрязнен воздух за последнюю неделю (Сильное загрязнение > 90)")
         st.image(
             get_pm25_week_history(
                 get_sensor_location_id(keyword) + ".png"),
             use_column_width=True)
     else:
-        st.text("Please enter a link before generating")
+        st.text("Введите ссылку для генерации отчета")

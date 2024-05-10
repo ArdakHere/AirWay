@@ -8,7 +8,7 @@ st.set_page_config(
     page_icon="🔧🏠")
 
 st.write("")
-st.title('Real Estate  Ecology Report Generator (Manual entering)')
+st.title('Генерация Эко Репорта для Недвижимости (Ручной ввод)')
 
 realestate_data = {
     "location": None,
@@ -17,10 +17,10 @@ realestate_data = {
 }
 
 realestate_data["location"] = st.text_input(
-    'Enter the location (latitude, longitude)')
+    'Введите координаты недвижимости (долгота, широта)')
 
 
-if st.button('Generate Report'):
+if st.button('Сгенерировать отчет'):
     st.image(
         create_apartment_report_from_manual_input(realestate_data["location"]),
         caption='Airway',
@@ -28,10 +28,10 @@ if st.button('Generate Report'):
 
     hour_history_path = get_pm25_hour_history(
         get_sensor_location_id_from_manual_input(realestate_data["location"]) + ".png")
-    st.title("How polluted the air was in the last 24 hours (Strong pollution if > 90)")
+    st.title("На сколько загрязнен воздух за последние 24 часа (Сильное загрязнение > 90)")
     st.image(hour_history_path, use_column_width=True)
 
     week_history_path = get_pm25_week_history(
         get_sensor_location_id_from_manual_input(realestate_data["location"]) + ".png")
-    st.title("How polluted the air was this week (Strong pollution if > 90)")
+    st.title("На сколько загрязнен воздух за последнюю неделю (Сильное загрязнение > 90)")
     st.image(week_history_path, use_column_width=True)

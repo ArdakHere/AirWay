@@ -8,13 +8,13 @@ st.set_page_config(
     page_title="Kolesa.kz Emissions Report",
     page_icon="🛞")
 
-st.title('Kolesa Ecology Report Generator')
+st.title('Генерация Эко Репорта для Автомобиля (Kolesa.kz)')
 kolesa_link = st.text_input(
-    'Paste the link to apartment/house/car listed on Kolesa.kz:', '')
+    'Введите ссылку на объявления из Kolesa.kz:', '')
 
 
 
-if st.button('Generate Report'):
+if st.button('Сгенерировать репорт'):
 
 
     if kolesa_link:
@@ -41,9 +41,9 @@ if st.button('Generate Report'):
 
         # Display buttons in a row
         st.markdown('<div class="button-container">', unsafe_allow_html=True)
-        if st.button("Contact Seller"):
+        if st.button("Связаться с продавцом"):
             pass  # Perform action when button is clicked
-        if st.button("Calculate Credit"):
+        if st.button("Посчитать кредит"):
             pass  # Perform action when button is clicked
         st.markdown('</div>', unsafe_allow_html=True)
 
@@ -59,4 +59,4 @@ if st.button('Generate Report'):
             use_column_width=True)
 
 else:
-    st.text("Please enter a link before generating the car report.")
+    st.text("Введите ссылку для генерации отчета")
