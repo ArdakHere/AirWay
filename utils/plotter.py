@@ -298,7 +298,7 @@ def generate_report_for_a_car(
     third_lvl_heading = ImageFont.truetype('./assets/font/FreeMonoBold.ttf', 45)
 
     drawCertificate.text(
-        (210, 70), "Репорт о загрязнении воздуха (авто)", font=titleFont, fill=(0, 0, 0))
+        (130, 70), "Репорт о загрязнении воздуха (авто)", font=titleFont, fill=(0, 0, 0))
     drawCertificate.text(
         (70, 170), "Данные авто:", font=second_lvl_heading, fill=(0, 0, 0))
     drawCertificate.text(
